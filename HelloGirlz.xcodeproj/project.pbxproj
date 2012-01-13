@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E8AAF2314C0D2EA00891B40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AAF2214C0D2EA00891B40 /* UIKit.framework */; };
+		2E8AAF2514C0D2EA00891B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AAF2414C0D2EA00891B40 /* Foundation.framework */; };
+		2E8AAF2714C0D2EA00891B40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AAF2614C0D2EA00891B40 /* CoreGraphics.framework */; };
+		2E8AAF2D14C0D2EA00891B40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AAF2B14C0D2EA00891B40 /* InfoPlist.strings */; };
+		2E8AAF2F14C0D2EA00891B40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8AAF2E14C0D2EA00891B40 /* main.m */; };
+		2E8AAF3314C0D2EA00891B40 /* HGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8AAF3214C0D2EA00891B40 /* HGAppDelegate.m */; };
+		2E8AAF3614C0D2EA00891B40 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AAF3414C0D2EA00891B40 /* MainStoryboard_iPhone.storyboard */; };
+		2E8AAF3914C0D2EA00891B40 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AAF3714C0D2EA00891B40 /* MainStoryboard_iPad.storyboard */; };
+		2E8AAF3C14C0D2EA00891B40 /* HGFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8AAF3B14C0D2EA00891B40 /* HGFirstViewController.m */; };
+		2E8AAF3E14C0D2EA00891B40 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AAF3D14C0D2EA00891B40 /* first.png */; };
+		2E8AAF4014C0D2EA00891B40 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AAF3F14C0D2EA00891B40 /* first@2x.png */; };
+		2E8AAF4314C0D2EA00891B40 /* HGSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8AAF4214C0D2EA00891B40 /* HGSecondViewController.m */; };
+		2E8AAF4514C0D2EA00891B40 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AAF4414C0D2EA00891B40 /* second.png */; };
+		2E8AAF4714C0D2EA00891B40 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AAF4614C0D2EA00891B40 /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E8AAF1E14C0D2EA00891B40 /* HelloGirlz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloGirlz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8AAF2214C0D2EA00891B40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2E8AAF2414C0D2EA00891B40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2E8AAF2614C0D2EA00891B40 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2E8AAF2A14C0D2EA00891B40 /* HelloGirlz-Info.plist */ = {isa = PBXFileReference; path = "HelloGirlz-Info.plist"; sourceTree = "<group>"; };
+		2E8AAF2C14C0D2EA00891B40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E8AAF2E14C0D2EA00891B40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2E8AAF3014C0D2EA00891B40 /* HelloGirlz-Prefix.pch */ = {isa = PBXFileReference; path = "HelloGirlz-Prefix.pch"; sourceTree = "<group>"; };
+		2E8AAF3114C0D2EA00891B40 /* HGAppDelegate.h */ = {isa = PBXFileReference; path = HGAppDelegate.h; sourceTree = "<group>"; };
+		2E8AAF3214C0D2EA00891B40 /* HGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HGAppDelegate.m; sourceTree = "<group>"; };
+		2E8AAF3514C0D2EA00891B40 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		2E8AAF3814C0D2EA00891B40 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		2E8AAF3A14C0D2EA00891B40 /* HGFirstViewController.h */ = {isa = PBXFileReference; path = HGFirstViewController.h; sourceTree = "<group>"; };
+		2E8AAF3B14C0D2EA00891B40 /* HGFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HGFirstViewController.m; sourceTree = "<group>"; };
+		2E8AAF3D14C0D2EA00891B40 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		2E8AAF3F14C0D2EA00891B40 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		2E8AAF4114C0D2EA00891B40 /* HGSecondViewController.h */ = {isa = PBXFileReference; path = HGSecondViewController.h; sourceTree = "<group>"; };
+		2E8AAF4214C0D2EA00891B40 /* HGSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HGSecondViewController.m; sourceTree = "<group>"; };
+		2E8AAF4414C0D2EA00891B40 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		2E8AAF4614C0D2EA00891B40 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E8AAF1B14C0D2EA00891B40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8AAF2314C0D2EA00891B40 /* UIKit.framework in Frameworks */,
+				2E8AAF2514C0D2EA00891B40 /* Foundation.framework in Frameworks */,
+				2E8AAF2714C0D2EA00891B40 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E8AAF1314C0D2EA00891B40 = {
+			isa = PBXGroup;
+			children = (
+				2E8AAF2814C0D2EA00891B40 /* HelloGirlz */,
+				2E8AAF2114C0D2EA00891B40 /* Frameworks */,
+				2E8AAF1F14C0D2EA00891B40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2E8AAF1F14C0D2EA00891B40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E8AAF1E14C0D2EA00891B40 /* HelloGirlz.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E8AAF2114C0D2EA00891B40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E8AAF2214C0D2EA00891B40 /* UIKit.framework */,
+				2E8AAF2414C0D2EA00891B40 /* Foundation.framework */,
+				2E8AAF2614C0D2EA00891B40 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E8AAF2814C0D2EA00891B40 /* HelloGirlz */ = {
+			isa = PBXGroup;
+			children = (
+				2E8AAF3114C0D2EA00891B40 /* HGAppDelegate.h */,
+				2E8AAF3214C0D2EA00891B40 /* HGAppDelegate.m */,
+				2E8AAF3414C0D2EA00891B40 /* MainStoryboard_iPhone.storyboard */,
+				2E8AAF3714C0D2EA00891B40 /* MainStoryboard_iPad.storyboard */,
+				2E8AAF3A14C0D2EA00891B40 /* HGFirstViewController.h */,
+				2E8AAF3B14C0D2EA00891B40 /* HGFirstViewController.m */,
+				2E8AAF3D14C0D2EA00891B40 /* first.png */,
+				2E8AAF3F14C0D2EA00891B40 /* first@2x.png */,
+				2E8AAF4114C0D2EA00891B40 /* HGSecondViewController.h */,
+				2E8AAF4214C0D2EA00891B40 /* HGSecondViewController.m */,
+				2E8AAF4414C0D2EA00891B40 /* second.png */,
+				2E8AAF4614C0D2EA00891B40 /* second@2x.png */,
+				2E8AAF2914C0D2EA00891B40 /* Supporting Files */,
+			);
+			path = HelloGirlz;
+			sourceTree = "<group>";
+		};
+		2E8AAF2914C0D2EA00891B40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E8AAF2A14C0D2EA00891B40 /* HelloGirlz-Info.plist */,
+				2E8AAF2B14C0D2EA00891B40 /* InfoPlist.strings */,
+				2E8AAF2E14C0D2EA00891B40 /* main.m */,
+				2E8AAF3014C0D2EA00891B40 /* HelloGirlz-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E8AAF1D14C0D2EA00891B40 /* HelloGirlz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E8AAF4A14C0D2EA00891B40 /* Build configuration list for PBXNativeTarget "HelloGirlz" */;
+			buildPhases = (
+				2E8AAF1A14C0D2EA00891B40 /* Sources */,
+				2E8AAF1B14C0D2EA00891B40 /* Frameworks */,
+				2E8AAF1C14C0D2EA00891B40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelloGirlz;
+			productName = HelloGirlz;
+			productReference = 2E8AAF1E14C0D2EA00891B40 /* HelloGirlz.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E8AAF1514C0D2EA00891B40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = none;
+			};
+			buildConfigurationList = 2E8AAF1814C0D2EA00891B40 /* Build configuration list for PBXProject "HelloGirlz" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2E8AAF1314C0D2EA00891B40;
+			productRefGroup = 2E8AAF1F14C0D2EA00891B40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E8AAF1D14C0D2EA00891B40 /* HelloGirlz */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E8AAF1C14C0D2EA00891B40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8AAF2D14C0D2EA00891B40 /* InfoPlist.strings in Resources */,
+				2E8AAF3614C0D2EA00891B40 /* MainStoryboard_iPhone.storyboard in Resources */,
+				2E8AAF3914C0D2EA00891B40 /* MainStoryboard_iPad.storyboard in Resources */,
+				2E8AAF3E14C0D2EA00891B40 /* first.png in Resources */,
+				2E8AAF4014C0D2EA00891B40 /* first@2x.png in Resources */,
+				2E8AAF4514C0D2EA00891B40 /* second.png in Resources */,
+				2E8AAF4714C0D2EA00891B40 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E8AAF1A14C0D2EA00891B40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8AAF2F14C0D2EA00891B40 /* main.m in Sources */,
+				2E8AAF3314C0D2EA00891B40 /* HGAppDelegate.m in Sources */,
+				2E8AAF3C14C0D2EA00891B40 /* HGFirstViewController.m in Sources */,
+				2E8AAF4314C0D2EA00891B40 /* HGSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2E8AAF2B14C0D2EA00891B40 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E8AAF2C14C0D2EA00891B40 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2E8AAF3414C0D2EA00891B40 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E8AAF3514C0D2EA00891B40 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		2E8AAF3714C0D2EA00891B40 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E8AAF3814C0D2EA00891B40 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2E8AAF4814C0D2EA00891B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E8AAF4914C0D2EA00891B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E8AAF4B14C0D2EA00891B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloGirlz/HelloGirlz-Prefix.pch";
+				INFOPLIST_FILE = "HelloGirlz/HelloGirlz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2E8AAF4C14C0D2EA00891B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloGirlz/HelloGirlz-Prefix.pch";
+				INFOPLIST_FILE = "HelloGirlz/HelloGirlz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E8AAF1814C0D2EA00891B40 /* Build configuration list for PBXProject "HelloGirlz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8AAF4814C0D2EA00891B40 /* Debug */,
+				2E8AAF4914C0D2EA00891B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E8AAF4A14C0D2EA00891B40 /* Build configuration list for PBXNativeTarget "HelloGirlz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8AAF4B14C0D2EA00891B40 /* Debug */,
+				2E8AAF4C14C0D2EA00891B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E8AAF1514C0D2EA00891B40 /* Project object */;
+}
