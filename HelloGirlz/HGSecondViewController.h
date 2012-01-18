@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HGSecondViewController : UIViewController
+@interface HGSecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    IBOutlet UITableView* _tableView;
+    NSMutableArray* _sites;
+}
+@property (nonatomic, strong) UITableView* _tableView;
 
 @end
