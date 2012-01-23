@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E12A8EF14C7816300A261A0 /* BonjourMadameApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E12A8EE14C7816300A261A0 /* BonjourMadameApi.m */; };
+		2E33E52014C8A072009C986D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E33E51F14C8A072009C986D /* Constants.m */; };
 		2E4F657814C0E18D00A7E4E3 /* ar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657014C0E18D00A7E4E3 /* ar.jpg */; };
 		2E4F657914C0E18D00A7E4E3 /* asiat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657114C0E18D00A7E4E3 /* asiat.jpg */; };
 		2E4F657A14C0E18D00A7E4E3 /* bc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657214C0E18D00A7E4E3 /* bc.jpg */; };
@@ -16,6 +17,7 @@
 		2E4F657D14C0E18D00A7E4E3 /* bt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657514C0E18D00A7E4E3 /* bt.jpg */; };
 		2E4F657E14C0E18D00A7E4E3 /* db.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657614C0E18D00A7E4E3 /* db.jpg */; };
 		2E4F657F14C0E18D00A7E4E3 /* dd.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657714C0E18D00A7E4E3 /* dd.jpeg */; };
+		2E5D726314CE0FF9009B867D /* blank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D726214CE0FF9009B867D /* blank.jpg */; };
 		2E8AAF2314C0D2EA00891B40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AAF2214C0D2EA00891B40 /* UIKit.framework */; };
 		2E8AAF2514C0D2EA00891B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AAF2414C0D2EA00891B40 /* Foundation.framework */; };
 		2E8AAF2714C0D2EA00891B40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AAF2614C0D2EA00891B40 /* CoreGraphics.framework */; };
@@ -33,11 +35,21 @@
 		2EB9E3A314C4B9EC00539073 /* HelloApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9E3A214C4B9EC00539073 /* HelloApi.m */; };
 		2EB9E3A714C4C41E00539073 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9E3A614C4C41E00539073 /* XPathQuery.m */; };
 		2EB9E3B014C4CBF100539073 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9E3AF14C4CBF100539073 /* libxml2.2.dylib */; };
+		2ECA433014C8D9F900562E40 /* BonsoirMadamoiselleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA432F14C8D9F900562E40 /* BonsoirMadamoiselleApi.m */; };
+		2ECA433414C8DCAA00562E40 /* BonjourTetonApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA433314C8DCAA00562E40 /* BonjourTetonApi.m */; };
+		2ECA433714C8DD2500562E40 /* AuRevoirMadameApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA433614C8DD2500562E40 /* AuRevoirMadameApi.m */; };
+		2ECA433A14C8DD8500562E40 /* SeinDuJourApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA433914C8DD8500562E40 /* SeinDuJourApi.m */; };
+		2ECA433D14C8DE0400562E40 /* BonjourAsiatApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA433C14C8DE0400562E40 /* BonjourAsiatApi.m */; };
+		2ECA434014C8DEA600562E40 /* BonjourTatoosApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA433F14C8DEA600562E40 /* BonjourTatoosApi.m */; };
+		2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */; };
+		2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E12A8ED14C7816300A261A0 /* BonjourMadameApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourMadameApi.h; sourceTree = "<group>"; };
 		2E12A8EE14C7816300A261A0 /* BonjourMadameApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourMadameApi.m; sourceTree = "<group>"; };
+		2E33E51E14C8A072009C986D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2E33E51F14C8A072009C986D /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		2E4F657014C0E18D00A7E4E3 /* ar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ar.jpg; sourceTree = "<group>"; };
 		2E4F657114C0E18D00A7E4E3 /* asiat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = asiat.jpg; sourceTree = "<group>"; };
 		2E4F657214C0E18D00A7E4E3 /* bc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bc.jpg; sourceTree = "<group>"; };
@@ -46,6 +58,7 @@
 		2E4F657514C0E18D00A7E4E3 /* bt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bt.jpg; sourceTree = "<group>"; };
 		2E4F657614C0E18D00A7E4E3 /* db.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = db.jpg; sourceTree = "<group>"; };
 		2E4F657714C0E18D00A7E4E3 /* dd.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dd.jpeg; sourceTree = "<group>"; };
+		2E5D726214CE0FF9009B867D /* blank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blank.jpg; sourceTree = "<group>"; };
 		2E8AAF1E14C0D2EA00891B40 /* HelloGirlz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloGirlz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8AAF2214C0D2EA00891B40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E8AAF2414C0D2EA00891B40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +84,22 @@
 		2EB9E3A514C4C41E00539073 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		2EB9E3A614C4C41E00539073 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		2EB9E3AF14C4CBF100539073 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxml2.2.dylib; sourceTree = "<group>"; };
+		2ECA432E14C8D9F900562E40 /* BonsoirMadamoiselleApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonsoirMadamoiselleApi.h; sourceTree = "<group>"; };
+		2ECA432F14C8D9F900562E40 /* BonsoirMadamoiselleApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonsoirMadamoiselleApi.m; sourceTree = "<group>"; };
+		2ECA433214C8DCAA00562E40 /* BonjourTetonApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourTetonApi.h; sourceTree = "<group>"; };
+		2ECA433314C8DCAA00562E40 /* BonjourTetonApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourTetonApi.m; sourceTree = "<group>"; };
+		2ECA433514C8DD2500562E40 /* AuRevoirMadameApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuRevoirMadameApi.h; sourceTree = "<group>"; };
+		2ECA433614C8DD2500562E40 /* AuRevoirMadameApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuRevoirMadameApi.m; sourceTree = "<group>"; };
+		2ECA433814C8DD8500562E40 /* SeinDuJourApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeinDuJourApi.h; sourceTree = "<group>"; };
+		2ECA433914C8DD8500562E40 /* SeinDuJourApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeinDuJourApi.m; sourceTree = "<group>"; };
+		2ECA433B14C8DE0400562E40 /* BonjourAsiatApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourAsiatApi.h; sourceTree = "<group>"; };
+		2ECA433C14C8DE0400562E40 /* BonjourAsiatApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourAsiatApi.m; sourceTree = "<group>"; };
+		2ECA433E14C8DEA600562E40 /* BonjourTatoosApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourTatoosApi.h; sourceTree = "<group>"; };
+		2ECA433F14C8DEA600562E40 /* BonjourTatoosApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourTatoosApi.m; sourceTree = "<group>"; };
+		2ECA434114C8E05F00562E40 /* DailyDemoiseilleApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyDemoiseilleApi.h; sourceTree = "<group>"; };
+		2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyDemoiseilleApi.m; sourceTree = "<group>"; };
+		2ECA434414C8E23A00562E40 /* OneDayOneBabeApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneDayOneBabeApi.h; sourceTree = "<group>"; };
+		2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneDayOneBabeApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +117,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E33E52214C8A08C009C986D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2E33E51E14C8A072009C986D /* Constants.h */,
+				2E33E51F14C8A072009C986D /* Constants.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		2E4F658114C0E19A00A7E4E3 /* StockGirls */ = {
 			isa = PBXGroup;
 			children = (
+				2E5D726214CE0FF9009B867D /* blank.jpg */,
 				2E4F657014C0E18D00A7E4E3 /* ar.jpg */,
 				2E4F657114C0E18D00A7E4E3 /* asiat.jpg */,
 				2E4F657214C0E18D00A7E4E3 /* bc.jpg */,
@@ -108,8 +147,24 @@
 			children = (
 				2EB9E3A114C4B9EC00539073 /* HelloApi.h */,
 				2EB9E3A214C4B9EC00539073 /* HelloApi.m */,
+				2ECA434414C8E23A00562E40 /* OneDayOneBabeApi.h */,
+				2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */,
 				2E12A8ED14C7816300A261A0 /* BonjourMadameApi.h */,
 				2E12A8EE14C7816300A261A0 /* BonjourMadameApi.m */,
+				2ECA433214C8DCAA00562E40 /* BonjourTetonApi.h */,
+				2ECA433314C8DCAA00562E40 /* BonjourTetonApi.m */,
+				2ECA433514C8DD2500562E40 /* AuRevoirMadameApi.h */,
+				2ECA433614C8DD2500562E40 /* AuRevoirMadameApi.m */,
+				2ECA432E14C8D9F900562E40 /* BonsoirMadamoiselleApi.h */,
+				2ECA432F14C8D9F900562E40 /* BonsoirMadamoiselleApi.m */,
+				2ECA433814C8DD8500562E40 /* SeinDuJourApi.h */,
+				2ECA433914C8DD8500562E40 /* SeinDuJourApi.m */,
+				2ECA433B14C8DE0400562E40 /* BonjourAsiatApi.h */,
+				2ECA433C14C8DE0400562E40 /* BonjourAsiatApi.m */,
+				2ECA433E14C8DEA600562E40 /* BonjourTatoosApi.h */,
+				2ECA433F14C8DEA600562E40 /* BonjourTatoosApi.m */,
+				2ECA434114C8E05F00562E40 /* DailyDemoiseilleApi.h */,
+				2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */,
 			);
 			name = HelloApi;
 			sourceTree = "<group>";
@@ -164,6 +219,7 @@
 				2E8AAF3F14C0D2EA00891B40 /* first@2x.png */,
 				2E8AAF4114C0D2EA00891B40 /* HGSecondViewController.h */,
 				2E8AAF4214C0D2EA00891B40 /* HGSecondViewController.m */,
+				2E33E52214C8A08C009C986D /* Utils */,
 				2E7BE08114C626D20070586B /* XPath */,
 				2E7BE08014C626C10070586B /* HelloApi */,
 				2E4F658114C0E19A00A7E4E3 /* StockGirls */,
@@ -251,6 +307,7 @@
 				2E4F657D14C0E18D00A7E4E3 /* bt.jpg in Resources */,
 				2E4F657E14C0E18D00A7E4E3 /* db.jpg in Resources */,
 				2E4F657F14C0E18D00A7E4E3 /* dd.jpeg in Resources */,
+				2E5D726314CE0FF9009B867D /* blank.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +325,15 @@
 				2EB9E3A314C4B9EC00539073 /* HelloApi.m in Sources */,
 				2EB9E3A714C4C41E00539073 /* XPathQuery.m in Sources */,
 				2E12A8EF14C7816300A261A0 /* BonjourMadameApi.m in Sources */,
+				2E33E52014C8A072009C986D /* Constants.m in Sources */,
+				2ECA433014C8D9F900562E40 /* BonsoirMadamoiselleApi.m in Sources */,
+				2ECA433414C8DCAA00562E40 /* BonjourTetonApi.m in Sources */,
+				2ECA433714C8DD2500562E40 /* AuRevoirMadameApi.m in Sources */,
+				2ECA433A14C8DD8500562E40 /* SeinDuJourApi.m in Sources */,
+				2ECA433D14C8DE0400562E40 /* BonjourAsiatApi.m in Sources */,
+				2ECA434014C8DEA600562E40 /* BonjourTatoosApi.m in Sources */,
+				2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */,
+				2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

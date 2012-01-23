@@ -10,6 +10,7 @@
 
 @implementation HelloApi
 @synthesize _delegate;
+@synthesize _siteName;
 
 - (id)init
 {
@@ -34,10 +35,14 @@
     
     
     // receivedData is an instance variable declared elsewhere.
-    NSLog(@"DidReceiveResponse");
+    NSLog(@"DidReceiveResponse For %@",_siteURL);
     
     // store encoding name
-    _encodingName = [[NSString alloc] initWithString:[response textEncodingName]];
+    if([response textEncodingName] != nil)
+        _encodingName = [[NSString alloc] initWithString:[response textEncodingName]];
+    else
+        _encodingName = [[NSString alloc] initWithString:@"utf-8"];
+
     
     // reset the data
     [_receivedData setLength:0];
@@ -47,7 +52,7 @@
 {
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
-    NSLog(@"didReceiveData - %d bytes", [data length]);
+//    NSLog(@"didReceiveData - %d bytes", [data length]);
     
     [_receivedData appendData:data];
 }
@@ -57,7 +62,7 @@
 {
     // do something with the data
     // receivedData is declared as a method instance elsewhere
-    NSLog(@"Succeeded! Received %d bytes of data",[_receivedData length]);
+    NSLog(@"Succeeded! Received %d bytes of data for %@",[_receivedData length], _siteName);
 //    NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((__bridge CFStringRef) _encodingName));
 //    NSString *payloadAsString = [[NSString alloc] initWithData:_receivedData encoding:encoding];
 //    NSLog(@"Payload : %@", payloadAsString);
@@ -65,12 +70,17 @@
     BOOL bPhotoFound = FALSE;
     
     // Get the BM photo URL
+//    NSLog(@"XPATH QUERY %@", _xPathForPhotoURL);
     NSArray *newItemsNodes = PerformHTMLXPathQuery(_receivedData, _xPathForPhotoURL);
     
     for(NSDictionary *node in newItemsNodes)
     {
         NSLog(@"PhotoURL found!! %@", [node objectForKey:@"nodeContent"]);
         _photoURL = [node objectForKey:@"nodeContent"];
+        if([self respondsToSelector:@selector(postProcessOnPhotoURL)])
+        {
+            [self postProcessOnPhotoURL];
+        }
         bPhotoFound = TRUE;
     }
     
@@ -114,22 +124,27 @@
 {
     if(_photoURL == nil)
     {
-        NSLog(@"Connection is needed");
+//        NSLog(@"Connection is needed");
         return TRUE;
     }
 
     return FALSE;
 }
 
+-(void)postProcessOnPhotoURL
+{
+    // nothing. to customized in child classes
+}
+
 #pragma mark - API interface methods
 
 // Returns false in case the site is not available, true otherwise
-- (BOOL)getDailyPhotoURL
+- (BOOL) getDailyPhotoURL:(BOOL)ibRefresh
 {
     BOOL bResult = FALSE;
-    if([self isConnectionNeeded])
+    if([self isConnectionNeeded] || ibRefresh)
     {
-        // URL is not already available
+        // URL is not already available or refresh is asked
         bResult = [self connectToSite];
     }
     else

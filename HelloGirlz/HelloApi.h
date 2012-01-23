@@ -20,7 +20,7 @@
     NSMutableData* _receivedData;
     NSString* _encodingName;
     
-@protected
+@public
     NSString* _photoURL;
     NSString* _siteURL;
     NSString* _siteName;
@@ -33,8 +33,10 @@
 
 - (BOOL) connectToSite;
 - (BOOL) isConnectionNeeded;
-- (BOOL) getDailyPhotoURL;
+- (BOOL) getDailyPhotoURL:(BOOL)ibRefresh;
+- (void) postProcessOnPhotoURL;
 @property(nonatomic, strong) id<HelloApiDelegate> _delegate;
+@property(nonatomic, strong) NSString* _siteName;
 @end
 
 // Protocol HelloApiDelegate

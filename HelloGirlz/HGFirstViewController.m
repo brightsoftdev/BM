@@ -7,6 +7,7 @@
 //
 
 #import "HGFirstViewController.h"
+#import "Constants.h"
 
 
 
@@ -23,11 +24,42 @@
 #pragma mark - Madame API delegate
 -(void) HelloApi:(HelloApi*)api didReceivePhotoURL:(NSString*)url withDate:(NSString*)date;
 {
-    NSLog(@"HGFirstViewController::did receive Photo URL!! %@",url);
+    NSLog(@"HGFirstViewController::did receive Photo URL For site %@ : %@ ", [api _siteName],url);
+    
     if(api == _bonjourMadameApi)
     {
-        NSLog(@"HGFirstViewController::coming from bonjourMadameAPI !");
+        [self updateImageFromUrl:url For:kBonjourMadameName];
     }
+    else if(api == _tetonApi)
+    {
+        [self updateImageFromUrl:url For:kBonjourTeton];
+    }
+    else if(api == _aurevoirmadameApi)
+    {
+        [self updateImageFromUrl:url For:kAuRevoirMadame];
+    }
+    else if(api == _bonsoirmademoiselleApi)
+    {
+        [self updateImageFromUrl:url For:kBonsoirMademoiselle];
+    }
+    else if(api == _seindujourApi)
+    {
+        [self updateImageFromUrl:url For:kSeinDuJour];
+    }
+    else if(api == _bonjourAsiatApi)
+    {
+        [self updateImageFromUrl:url For:kBonjourLasiat];
+    }
+    else if(api == _dailyDemoiselleApi)
+    {
+        [self updateImageFromUrl:url For:kDailyDemoiselle];
+    }
+    else if(api == _onebabeApi)
+    {
+        [self updateImageFromUrl:url For:kOneDayOneBabe];
+    }
+    
+    [self loadImages];
 }
 
 #pragma mark - View lifecycle
@@ -37,43 +69,60 @@
     NSLog(@"HGFirstViewController::viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _images = [[NSMutableArray alloc] initWithObjects: 
-              [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"jpg"], 
-              [[NSBundle mainBundle] pathForResource:@"asiat" ofType:@"jpg"],
-              [[NSBundle mainBundle] pathForResource:@"bc" ofType:@"jpg"],
-              [[NSBundle mainBundle] pathForResource:@"bm" ofType:@"jpg"],
-              [[NSBundle mainBundle] pathForResource:@"BMA" ofType:@"jpg"], 
-              [[NSBundle mainBundle] pathForResource:@"bt" ofType:@"jpg"],
-              [[NSBundle mainBundle] pathForResource:@"db" ofType:@"jpg"],
-              [[NSBundle mainBundle] pathForResource:@"dd" ofType:@"jpeg"],
-              nil];
     
-    for (int i = 0; i < _images.count; i++) {
-        CGRect frame;
-        frame.origin.x = self._scrollView.frame.size.width * i;
-        frame.origin.y = 0;
-        frame.size = self._scrollView.frame.size;
-        
-        UIView *subview = [[UIView alloc] initWithFrame:frame];
-        
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
-        UIImage *img = [[UIImage alloc] initWithContentsOfFile:[_images objectAtIndex:i]];
-        [imgView setImage:img];
-        imgView.contentMode = UIViewContentModeScaleAspectFit;
-        
-        [subview addSubview:imgView];
-        [self._scrollView addSubview:subview];
+    // Images initialization
+    if(_imagesDic == nil)
+    {
+        _imagesDic = [NSMutableDictionary dictionary];
+//                UIImage* aBlankImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"blank" ofType:@"jpg"]];
+        UIImage* aBlankImage = [[UIImage alloc] init];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourMadameName];
+        [_imagesDic setObject:aBlankImage forKey:kDailyDemoiselle];
+        [_imagesDic setObject:aBlankImage forKey:kOneDayOneBabe];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourLasiat];
+        [_imagesDic setObject:aBlankImage forKey:kSeinDuJour];
+        [_imagesDic setObject:aBlankImage forKey:kAuRevoirMadame];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourTeton];
+//        [_imagesDic setObject:aBlankImage forKey:kBonsoirMademoiselle];
     }
-    self._scrollView.contentSize = CGSizeMake(self._scrollView.frame.size.width * _images.count, self._scrollView.frame.size.height);
+
+    // Load Images in Scrollview
+    [self loadImages];
     
-    _pageControl.numberOfPages = _images.count;
-    _pageControlBeingUsed = NO;
-    
-    // temporary
+    // Init and Call Apis
     _bonjourMadameApi = [[BonjourMadameApi alloc] init];
     _bonjourMadameApi._delegate = self;
-    [_bonjourMadameApi getDailyPhotoURL];
     
+    _onebabeApi = [[OneDayOneBabeApi alloc] init];
+    _onebabeApi._delegate = self;
+    
+    _tetonApi = [[BonjourTetonApi alloc] init];
+    _tetonApi._delegate = self;
+    
+    _aurevoirmadameApi = [[AuRevoirMadameApi alloc]init];
+    _aurevoirmadameApi._delegate = self;
+    
+    
+//    _bonsoirmademoiselleApi = [[BonsoirMadamoiselleApi alloc] init];TODO
+//    _bonsoirmademoiselleApi._delegate = self;
+    
+    _seindujourApi = [[SeinDuJourApi alloc] init];
+    _seindujourApi._delegate = self;
+    
+    
+    _bonjourAsiatApi = [[BonjourAsiatApi alloc] init];
+    _bonjourAsiatApi._delegate = self;
+    
+    
+    _dailyDemoiselleApi = [[DailyDemoiseilleApi alloc] init];
+    _dailyDemoiselleApi._delegate = self;
+    
+    [self queryAPIs];
+    
+    // Set Page Title
+//    NSLog(@"Setting title for Page = %d",_pageControl.currentPage);
+    _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+
 }
 
 - (void)viewDidUnload
@@ -122,6 +171,10 @@
     
     if(_pageControlBeingUsed == NO)
         self._pageControl.currentPage = page;
+    
+    // Refresh page title
+//    NSLog(@"Refresh title for Page = %d",_pageControl.currentPage);
+    _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -147,6 +200,95 @@
     
     _pageControlBeingUsed = YES;
 
+}
+
+-(IBAction)refresh
+{
+    NSLog(@"Refreshing Madames...");
+    [self queryAPIs];
+
+}
+
+
+#pragma mark - Other methods
+
+-(void)queryAPIs
+{
+    // Call Apis
+    if(_bonjourMadameApi)   [_bonjourMadameApi getDailyPhotoURL:TRUE];
+    
+    if(_onebabeApi)         [_onebabeApi getDailyPhotoURL:TRUE];
+    
+    if(_tetonApi)           [_tetonApi getDailyPhotoURL:TRUE];
+    
+    if(_aurevoirmadameApi)  [_aurevoirmadameApi getDailyPhotoURL:TRUE];
+    
+    
+    //    _bonsoirmademoiselleApi = [[BonsoirMadamoiselleApi alloc] init];TODO
+    //    _bonsoirmademoiselleApi._delegate = self;
+    //    [_bonsoirmademoiselleApi getDailyPhotoURL];
+
+    if(_seindujourApi)      [_seindujourApi getDailyPhotoURL:TRUE];
+    
+    if(_bonjourAsiatApi)    [_bonjourAsiatApi getDailyPhotoURL:TRUE];
+    
+    if(_dailyDemoiselleApi) [_dailyDemoiselleApi getDailyPhotoURL:TRUE];
+}
+
+-(void)loadImages
+{
+    // Load Images in ScrollView
+    unsigned int i = 0;
+    for (NSString* key in _imagesDic) {
+        
+        CGRect frame;
+        frame.origin.x = self._scrollView.frame.size.width * i;
+        frame.origin.y = 0;
+        frame.size = self._scrollView.frame.size;
+        
+        UIView *subview = [[UIView alloc] initWithFrame:frame];
+        
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
+        [imgView setImage: [_imagesDic objectForKey:key] ];
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [subview addSubview:imgView];
+        [self._scrollView addSubview:subview];
+        i++;
+    }
+    
+    int aNbOfPages = [[_imagesDic allKeys] count];
+    self._scrollView.contentSize = CGSizeMake(self._scrollView.frame.size.width * aNbOfPages, self._scrollView.frame.size.height);
+    
+    _pageControl.numberOfPages = aNbOfPages;
+    _pageControlBeingUsed = NO;
+}
+
+-(void)updateImageFromUrl:(NSString*)iURL For:(NSString*) iKey;
+{
+    // init image from URL
+    NSURL* aURL = [NSURL URLWithString:iURL];
+    NSData* data = [[NSData alloc] initWithContentsOfURL:aURL];
+    UIImage* img = [[UIImage alloc] initWithData:data];
+    
+    // Update images dictionary
+    [_imagesDic setObject:img forKey:iKey];
+}
+
+-(NSString*)getKeyForPage:(NSInteger)iPage
+{
+//    NSLog(@"gettingKeyForPage = %d",iPage);
+    NSInteger aCounter = 0;
+    for (NSString* key in _imagesDic)
+    {
+        if(aCounter == iPage)
+        {
+//            NSLog(@"Found key: %@",key);
+            return key;
+        }
+        aCounter++;
+    }
+    return nil;
 }
 
 @end
