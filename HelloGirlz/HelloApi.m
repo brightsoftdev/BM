@@ -24,6 +24,13 @@
 
 
 #pragma  mark - NSURLConnection delegates 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"connection for site %@ failed! with error desc. = %@",_siteURL, [error localizedDescription]);
+//    NSLog(@"connection for site %@ failed! with error reason = %@",_siteURL, [error localizedFailureReason]);
+//    NSLog(@"connection for site %@ failed! with recovery suggest. = %@",_siteURL, [error localizedRecoverySuggestion]);
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     // This method is called when the server has determined that it
@@ -35,7 +42,7 @@
     
     
     // receivedData is an instance variable declared elsewhere.
-    NSLog(@"DidReceiveResponse For %@",_siteURL);
+//    NSLog(@"DidReceiveResponse For %@",_siteURL);
     
     // store encoding name
     if([response textEncodingName] != nil)
@@ -75,7 +82,7 @@
     
     for(NSDictionary *node in newItemsNodes)
     {
-        NSLog(@"PhotoURL found!! %@", [node objectForKey:@"nodeContent"]);
+//        NSLog(@"PhotoURL found!! %@", [node objectForKey:@"nodeContent"]);
         _photoURL = [node objectForKey:@"nodeContent"];
         if([self respondsToSelector:@selector(postProcessOnPhotoURL)])
         {
@@ -103,6 +110,7 @@
     NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString: _siteURL ]
                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                           timeoutInterval:60.0];
+    
     // create the connection with the request
     // and start loading the data
     NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];

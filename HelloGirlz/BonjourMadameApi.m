@@ -18,7 +18,7 @@
 //        NSLog(@"Initialization of BonjourMadameApi");
         _siteURL = [[NSString alloc] initWithString:@"http://www.bonjourmadame.fr"];
         _siteName = [[NSString alloc] initWithString:@"bonjourmadame"];
-        _xPathForPhotoURL = [[NSString alloc] initWithString:@"//div[@class='photo']/a/img/@src"];
+        _xPathForPhotoURL = [[NSString alloc] initWithString:@"//div[@class='photo']//img/@src"];
     }
     return self;
 }

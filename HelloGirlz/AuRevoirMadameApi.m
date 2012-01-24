@@ -18,7 +18,7 @@
 //        NSLog(@"Initialization of AuRevoirMadameApi");
         _siteURL = [[NSString alloc] initWithString:@"http://www.aurevoirmadame.fr"];
         _siteName = [[NSString alloc] initWithString:@"aurevoirmadame"];
-        _xPathForPhotoURL = [[NSString alloc] initWithString:@"//div[@class='photo']/a/img/@src"];
+        _xPathForPhotoURL = [[NSString alloc] initWithString:@"//div[@class='photo']//img/@src"];
     }
     return self;
 }

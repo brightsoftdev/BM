@@ -38,6 +38,8 @@
     SeinDuJourApi* _seindujourApi;
     BonjourAsiatApi* _bonjourAsiatApi;
     DailyDemoiseilleApi* _dailyDemoiselleApi;
+    
+    
 }
 
 @property(nonatomic, strong) UIScrollView* _scrollView;

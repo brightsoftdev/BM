@@ -18,7 +18,7 @@
 //        NSLog(@"Initialization of BonjourTetonApi");
         _siteURL = [[NSString alloc] initWithString:@"http://www.bonjourteton.tumblr.com"];
         _siteName = [[NSString alloc] initWithString:@"bonjourteton"];
-        _xPathForPhotoURL = [[NSString alloc] initWithString:@"//div[@class='photo']/img/@src"];
+        _xPathForPhotoURL = [[NSString alloc] initWithString:@"//div[@class='photo']//img/@src"];
     }
     return self;
 }

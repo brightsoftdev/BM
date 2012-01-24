@@ -237,24 +237,39 @@
 
 -(void)loadImages
 {
+    // Purge previous subviews
+    for(UIView* view in self._scrollView.subviews)
+    {
+        [view removeFromSuperview];
+    }
+    
     // Load Images in ScrollView
     unsigned int i = 0;
     for (NSString* key in _imagesDic) {
-        
+//        NSLog(@"Loading image in scrollview for %@",key);
         CGRect frame;
         frame.origin.x = self._scrollView.frame.size.width * i;
         frame.origin.y = 0;
         frame.size = self._scrollView.frame.size;
         
+//        NSLog(@"frame origin x = %f", frame.origin.x);
+//        NSLog(@"frame origin x = %f", frame.origin.x);
+//        NSLog(@"frame size width = %f", frame.size.width);
+//        NSLog(@"frame size heigh = %f", frame.size.height);
+        
         UIView *subview = [[UIView alloc] initWithFrame:frame];
         
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
+//        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:subview.bounds];
         [imgView setImage: [_imagesDic objectForKey:key] ];
         imgView.contentMode = UIViewContentModeScaleAspectFit;
         
         [subview addSubview:imgView];
+
         [self._scrollView addSubview:subview];
+
         i++;
+        
     }
     
     int aNbOfPages = [[_imagesDic allKeys] count];
@@ -266,13 +281,18 @@
 
 -(void)updateImageFromUrl:(NSString*)iURL For:(NSString*) iKey;
 {
+//    NSLog(@"Begin loading image from url %@ for key %@",iURL,iKey);
     // init image from URL
     NSURL* aURL = [NSURL URLWithString:iURL];
-    NSData* data = [[NSData alloc] initWithContentsOfURL:aURL];
+    NSError* aErr = nil;
+    NSData* data = [[NSData alloc] initWithContentsOfURL:aURL options:NSDataReadingUncached error:&aErr];
     UIImage* img = [[UIImage alloc] initWithData:data];
     
+//    NSLog(@"End loading image from url %@ for key %@",iURL,iKey);
+    
     // Update images dictionary
-    [_imagesDic setObject:img forKey:iKey];
+    if(img != nil)
+        [_imagesDic setObject:img forKey:iKey];
 }
 
 -(NSString*)getKeyForPage:(NSInteger)iPage
