@@ -43,6 +43,7 @@
 		2ECA434014C8DEA600562E40 /* BonjourTatoosApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA433F14C8DEA600562E40 /* BonjourTatoosApi.m */; };
 		2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */; };
 		2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */; };
+		2ED654EC14CF74560093E7D1 /* BonjourCulApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyDemoiseilleApi.m; sourceTree = "<group>"; };
 		2ECA434414C8E23A00562E40 /* OneDayOneBabeApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneDayOneBabeApi.h; sourceTree = "<group>"; };
 		2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneDayOneBabeApi.m; sourceTree = "<group>"; };
+		2ED654EA14CF74560093E7D1 /* BonjourCulApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourCulApi.h; sourceTree = "<group>"; };
+		2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourCulApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 		2E7BE08014C626C10070586B /* HelloApi */ = {
 			isa = PBXGroup;
 			children = (
+				2ED654EA14CF74560093E7D1 /* BonjourCulApi.h */,
+				2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */,
 				2EB9E3A114C4B9EC00539073 /* HelloApi.h */,
 				2EB9E3A214C4B9EC00539073 /* HelloApi.m */,
 				2ECA434414C8E23A00562E40 /* OneDayOneBabeApi.h */,
@@ -334,6 +339,7 @@
 				2ECA434014C8DEA600562E40 /* BonjourTatoosApi.m in Sources */,
 				2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */,
 				2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */,
+				2ED654EC14CF74560093E7D1 /* BonjourCulApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

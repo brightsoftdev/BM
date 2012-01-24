@@ -15,3 +15,4 @@ extern NSString * const kSeinDuJour;
 extern NSString * const kAuRevoirMadame;
 extern NSString * const kBonjourTeton;
 extern NSString * const kBonsoirMademoiselle;
+extern NSString * const kBonjourLeCul;

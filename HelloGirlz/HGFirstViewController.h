@@ -17,6 +17,7 @@
 #import "BonjourAsiatApi.h"
 #import "BonjourTatoosApi.h"
 #import "DailyDemoiseilleApi.h"
+#import "BonjourCulApi.h"
 
 
 @interface HGFirstViewController : UIViewController<UIScrollViewDelegate, HelloApiDelegate>
@@ -38,8 +39,7 @@
     SeinDuJourApi* _seindujourApi;
     BonjourAsiatApi* _bonjourAsiatApi;
     DailyDemoiseilleApi* _dailyDemoiselleApi;
-    
-    
+    BonjourCulApi* _bonjourCulApi;
 }
 
 @property(nonatomic, strong) UIScrollView* _scrollView;

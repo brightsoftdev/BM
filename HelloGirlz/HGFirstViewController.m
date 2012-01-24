@@ -58,6 +58,10 @@
     {
         [self updateImageFromUrl:url For:kOneDayOneBabe];
     }
+    else if(api == _bonjourCulApi)
+    {
+        [self updateImageFromUrl:url For:kBonjourLeCul];
+    }
     
     [self loadImages];
 }
@@ -83,6 +87,7 @@
         [_imagesDic setObject:aBlankImage forKey:kSeinDuJour];
         [_imagesDic setObject:aBlankImage forKey:kAuRevoirMadame];
         [_imagesDic setObject:aBlankImage forKey:kBonjourTeton];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourLeCul];
 //        [_imagesDic setObject:aBlankImage forKey:kBonsoirMademoiselle];
     }
 
@@ -113,9 +118,11 @@
     _bonjourAsiatApi = [[BonjourAsiatApi alloc] init];
     _bonjourAsiatApi._delegate = self;
     
-    
     _dailyDemoiselleApi = [[DailyDemoiseilleApi alloc] init];
     _dailyDemoiselleApi._delegate = self;
+    
+    _bonjourCulApi = [[BonjourCulApi alloc] init];
+    _bonjourCulApi._delegate = self;
     
     [self queryAPIs];
     
@@ -223,7 +230,6 @@
     
     if(_aurevoirmadameApi)  [_aurevoirmadameApi getDailyPhotoURL:TRUE];
     
-    
     //    _bonsoirmademoiselleApi = [[BonsoirMadamoiselleApi alloc] init];TODO
     //    _bonsoirmademoiselleApi._delegate = self;
     //    [_bonsoirmademoiselleApi getDailyPhotoURL];
@@ -233,6 +239,8 @@
     if(_bonjourAsiatApi)    [_bonjourAsiatApi getDailyPhotoURL:TRUE];
     
     if(_dailyDemoiselleApi) [_dailyDemoiselleApi getDailyPhotoURL:TRUE];
+    
+    if(_bonjourCulApi)      [_bonjourCulApi getDailyPhotoURL:TRUE];
 }
 
 -(void)loadImages

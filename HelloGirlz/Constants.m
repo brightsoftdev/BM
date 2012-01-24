@@ -15,3 +15,4 @@ NSString * const kSeinDuJour            = @"Sein Du Jour";
 NSString * const kAuRevoirMadame        = @"Au Revoir Madame";
 NSString * const kBonjourTeton          = @"Bonjour Téton";
 NSString * const kBonsoirMademoiselle   = @"Bonsoir Mademoiselle";
+NSString * const kBonjourLeCul          = @"Bonjour Le Cul";
