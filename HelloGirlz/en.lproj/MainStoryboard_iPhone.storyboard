@@ -35,7 +35,7 @@
                                 </items>
                             </navigationBar>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="V6d-Ko-KJ7">
-                                <rect key="frame" x="141" y="381" width="38" height="36"/>
+                                <rect key="frame" x="20" y="381" width="280" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="changePage" destination="2" eventType="valueChanged" id="tZg-JD-74Y"/>
