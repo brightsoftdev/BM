@@ -14,7 +14,6 @@
 @implementation HGFirstViewController
 @synthesize _scrollView;
 @synthesize _pageControl;
-@synthesize _spinner;
 @synthesize _compteur;
 
 
@@ -136,9 +135,9 @@
     _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
     
     
-     _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-     [self.view addSubview:_spinner]; // spinner is not visible until started
+
     _compteur = 0;
+     
 }
 
 - (void)viewDidUnload
@@ -326,7 +325,7 @@
 - (void)loadImageInBackGround:  (NSArray*) params{
     _compteur = _compteur + 1;
     NSLog(@"compeur = %d",_compteur);
-    [_spinner startAnimating];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
    // UIImage* image = [[UIImage alloc] initWithData:data] ;
    // [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
     NSLog(@"Construction de l'image en background :  %@",[params objectAtIndex:0]);
@@ -337,7 +336,7 @@
     _compteur = _compteur - 1;
     NSLog(@"compeur = %d",_compteur);
     if (_compteur == 0) {
-        [_spinner stopAnimating];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }
 
 }

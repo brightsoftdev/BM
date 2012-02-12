@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "350746642.870979"
+         timestampString = "350747144.597374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "332"
-         endingLineNumber = "332"
+         startingLineNumber = "331"
+         endingLineNumber = "331"
          landmarkName = "-loadImageInBackGround:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "350746642.870979"
+         timestampString = "350747144.597374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "224"
-         endingLineNumber = "224"
+         startingLineNumber = "223"
+         endingLineNumber = "223"
          landmarkName = "-refresh"
          landmarkType = "5">
       </FileBreakpoint>
@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "350746642.870979"
+         timestampString = "350747144.597374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "234"
-         endingLineNumber = "234"
+         startingLineNumber = "233"
+         endingLineNumber = "233"
          landmarkName = "-queryAPIs"
          landmarkType = "5">
       </FileBreakpoint>
@@ -93,11 +93,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "350746642.870979"
+         timestampString = "350747144.597374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "252"
-         endingLineNumber = "252"
+         startingLineNumber = "251"
+         endingLineNumber = "251"
          landmarkName = "-queryAPIs"
          landmarkType = "5">
       </FileBreakpoint>
@@ -107,11 +107,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "350746642.870979"
+         timestampString = "350747144.597374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "232"
-         endingLineNumber = "232"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
          landmarkName = "-queryAPIs"
          landmarkType = "5">
       </FileBreakpoint>
