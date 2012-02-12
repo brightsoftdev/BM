@@ -212,8 +212,8 @@
 -(IBAction)refresh
 {
     NSLog(@"Refreshing Madames...");
-   // [self queryAPIs];
-    [self performSelectorInBackground:@selector(queryAPIs) withObject:nil];
+     [self queryAPIs];
+    //[self performSelectorInBackground:@selector(queryAPIs) withObject:nil];
 
 }
 
@@ -294,14 +294,14 @@
 //    NSLog(@"Begin loading image from url %@ for key %@",iURL,iKey);
     // init image from URL
     NSURL* aURL = [NSURL URLWithString:iURL];
-    NSError* aErr = nil;
-    NSData* data = [[NSData alloc] initWithContentsOfURL:aURL options:NSDataReadingUncached error:&aErr];
+    //NSError* aErr = nil;
+    //NSData* data = [[NSData alloc] initWithContentsOfURL:aURL options:NSDataReadingUncached error:&aErr];
     
     
     //Amau 12/02/2012
     //asynchronous task 
     
-    NSArray * params = [NSArray arrayWithObjects:iKey,data, nil];
+    NSArray * params = [NSArray arrayWithObjects:iKey,aURL, nil];
     [self performSelectorInBackground:@selector(loadImageInBackGround:) withObject:params];
     
  //UIImage* img = [[UIImage alloc] initWithData:data];
@@ -317,7 +317,8 @@
    // UIImage* image = [[UIImage alloc] initWithData:data] ;
    // [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
     NSLog(@"Construction de l'image en background :  %@",[params objectAtIndex:0]);
-    UIImage* img = [[UIImage alloc] initWithData:[params objectAtIndex:1]];
+    NSData* data = [[NSData alloc] initWithContentsOfURL:[params objectAtIndex:1] options:NSDataReadingUncached error:nil];
+    UIImage* img = [[UIImage alloc] initWithData:data];
     if(img != nil)
         [_imagesDic setObject:img forKey:[params objectAtIndex:0]];
 }
