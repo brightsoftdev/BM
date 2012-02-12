@@ -253,7 +253,8 @@
     
     // Load Images in ScrollView
     unsigned int i = 0;
-    for (NSString* key in _imagesDic) {
+    //allkeys http://stackoverflow.com/questions/8640565/error-collection-nscfdictionary-0x563560-was-mutated-while-being-enume
+    for (NSString* key in [_imagesDic allKeys]) {
 //        NSLog(@"Loading image in scrollview for %@",key);
         CGRect frame;
         frame.origin.x = self._scrollView.frame.size.width * i;
@@ -326,7 +327,8 @@
 {
 //    NSLog(@"gettingKeyForPage = %d",iPage);
     NSInteger aCounter = 0;
-    for (NSString* key in _imagesDic)
+    //allkeys http://stackoverflow.com/questions/8640565/error-collection-nscfdictionary-0x563560-was-mutated-while-being-enume
+    for (NSString* key in [_imagesDic allKeys])
     {
         if(aCounter == iPage)
         {

@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "350737278.421891"
+         timestampString = "350739142.645929"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "317"
-         endingLineNumber = "317"
+         startingLineNumber = "318"
+         endingLineNumber = "318"
          landmarkName = "-loadImageInBackGround:"
          landmarkType = "5">
       </FileBreakpoint>
