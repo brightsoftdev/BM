@@ -76,7 +76,6 @@
     return cell;
 }
 
-
 #pragma mark - Custom methods
 
 -(UIImage*) getImageFromDictionnaryAtPosition:(NSInteger)position
@@ -106,6 +105,15 @@
             counter++;
     }
     return nil;
+    
+    
 }
 
 @end
+
+
+
+
+//[[NSNotificationCenter defaultCenter] postNotificationName:@"sauversousparcelle" object:nil];
+//on s'abonne aux notification qui viennent de addParcelle.m pour gerer les actions de la subview
+//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveAddParcelle)    name:@"sauverparcelle"   object:nil];
