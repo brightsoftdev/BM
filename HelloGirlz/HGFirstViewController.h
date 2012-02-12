@@ -40,10 +40,15 @@
     BonjourAsiatApi* _bonjourAsiatApi;
     DailyDemoiseilleApi* _dailyDemoiselleApi;
     BonjourCulApi* _bonjourCulApi;
+    UIActivityIndicatorView* _spinner;
+    int _compteur;
 }
 
 @property(nonatomic, strong) UIScrollView* _scrollView;
 @property(nonatomic, strong) UIPageControl* _pageControl;
+@property(nonatomic, strong)  UIActivityIndicatorView* _spinner;
+@property(nonatomic, assign)  int _compteur;
+
 
 -(IBAction)changePage;
 -(IBAction)refresh;
