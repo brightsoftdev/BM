@@ -294,14 +294,33 @@
     NSURL* aURL = [NSURL URLWithString:iURL];
     NSError* aErr = nil;
     NSData* data = [[NSData alloc] initWithContentsOfURL:aURL options:NSDataReadingUncached error:&aErr];
-    UIImage* img = [[UIImage alloc] initWithData:data];
     
-//    NSLog(@"End loading image from url %@ for key %@",iURL,iKey);
     
-    // Update images dictionary
-    if(img != nil)
-        [_imagesDic setObject:img forKey:iKey];
+    //Amau 12/02/2012
+    //asynchronous task 
+    
+    NSArray * params = [NSArray arrayWithObjects:iKey,data, nil];
+    [self performSelectorInBackground:@selector(loadImageInBackGround:) withObject:params];
+    
+ //UIImage* img = [[UIImage alloc] initWithData:data];
+ //NSLog(@"End loading image from url %@ for key %@",iURL,iKey);
+ //Update images dictionary
+ //if(img != nil)
+ //[_imagesDic setObject:img forKey:iKey];
 }
+
+
+
+- (void)loadImageInBackGround:  (NSArray*) params{
+   // UIImage* image = [[UIImage alloc] initWithData:data] ;
+   // [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
+    NSLog(@"Construction de l'image en background :  %@",[params objectAtIndex:0]);
+    UIImage* img = [[UIImage alloc] initWithData:[params objectAtIndex:1]];
+    if(img != nil)
+        [_imagesDic setObject:img forKey:[params objectAtIndex:0]];
+}
+
+
 
 -(NSString*)getKeyForPage:(NSInteger)iPage
 {
