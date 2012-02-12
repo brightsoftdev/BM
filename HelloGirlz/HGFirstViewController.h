@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HelloApi.h"
+#import "HGAppDelegate.h"
 #import "BonjourMadameApi.h"
 #import "OneDayOneBabeApi.h"
 #import "BonjourTetonApi.h"

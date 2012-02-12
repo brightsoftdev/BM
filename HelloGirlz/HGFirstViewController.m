@@ -277,15 +277,17 @@
 //        NSLog(@"frame size heigh = %f", frame.size.height);
         
         UIView *subview = [[UIView alloc] initWithFrame:frame];
-        
+
 //        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:subview.bounds];
+        
+
         [imgView setImage: [_imagesDic objectForKey:key] ];
         imgView.contentMode = UIViewContentModeScaleAspectFit;
-        
         [subview addSubview:imgView];
 
         [self._scrollView addSubview:subview];
+
 
         i++;
         
@@ -314,6 +316,7 @@
 - (void)loadImageInBackGround:  (NSArray*) params{
     //on compte le nombre d'image crées
     _compteur = _compteur + 1;
+    [_refreshButton setEnabled:NO];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSLog(@"Construction de l'image en background :  %@",[params objectAtIndex:0]);
     NSData* data = [[NSData alloc] initWithContentsOfURL:[params objectAtIndex:1] options:NSDataReadingUncached error:nil];
@@ -328,6 +331,7 @@
     if (_compteur == 0) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [self loadImages];
+        [_refreshButton setEnabled:YES];
     }
 
 }
@@ -350,5 +354,21 @@
     }
     return nil;
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+    CGRect cgRect =[[UIScreen mainScreen] bounds];
+    CGSize cgSize = cgRect.size;
+    //txtmail = [[UITextField alloc] initWithFrame:CGRectMake(0, cgSize.height/2, cgSize.width, 30) ];
+
+    // recup du nombre de tap :
+    int nb = [[touches anyObject] tapCount];
+	
+	if(nb==2){
+        //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
+        NSLog(@"double touche %d",nb);
+    }
+}
+
 
 @end
