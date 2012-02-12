@@ -60,6 +60,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="first.png" id="7"/>
                     <connections>
+                        <outlet property="_maView" destination="16" id="yJD-Ye-rlu"/>
                         <outlet property="_navBar" destination="Ko8-k0-Y9v" id="Vpd-kZ-o7T"/>
                         <outlet property="_pageControl" destination="V6d-Ko-KJ7" id="iEB-br-UJG"/>
                         <outlet property="_refreshButton" destination="RkP-DC-ptF" id="HtE-io-tDG"/>

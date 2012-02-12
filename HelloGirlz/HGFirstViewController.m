@@ -15,7 +15,8 @@
 @synthesize _scrollView;
 @synthesize _pageControl;
 @synthesize _compteur;
-
+@synthesize _maView;
+@synthesize _fullScreen;
 
 
 - (void)didReceiveMemoryWarning
@@ -137,6 +138,7 @@
     
 
     _compteur = 0;
+    _fullScreen = NO;
      
 }
 
@@ -281,11 +283,12 @@
 //        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:subview.bounds];
         
-
+        
         [imgView setImage: [_imagesDic objectForKey:key] ];
         imgView.contentMode = UIViewContentModeScaleAspectFit;
         [subview addSubview:imgView];
-
+        [subview setTag:i];
+        
         [self._scrollView addSubview:subview];
 
 
@@ -356,18 +359,66 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	
-    CGRect cgRect =[[UIScreen mainScreen] bounds];
-    CGSize cgSize = cgRect.size;
-    //txtmail = [[UITextField alloc] initWithFrame:CGRectMake(0, cgSize.height/2, cgSize.width, 30) ];
+    
+    UITouch *touch = [touches anyObject];
+    int tag = touch.view.tag;
+    NSLog(@"tag %d",tag);
 
+    //CGSize cgSize = cgRect.size;
+    //txtmail = [[UITextField alloc] initWithFrame:CGRectMake(0, cgSize.height/2, cgSize.width, 30) ];
+    //CGFloat pageWidth = self._scrollView.frame.size.width;
+    
+
+    
     // recup du nombre de tap :
     int nb = [[touches anyObject] tapCount];
 	
 	if(nb==2){
-        //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
-        NSLog(@"double touche %d",nb);
+        if (_fullScreen == NO) {
+            _fullScreen = YES;
+            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+            CGRect cgRect =[[UIScreen mainScreen] bounds];
+            NSLog(@"double touche %d",nb);        
+            UIImageView *imgView = [[UIImageView alloc] initWithFrame:cgRect];
+            
+            
+            
+            
+            
+            
+            for(UIView* view in self._scrollView.subviews)
+            {
+                if (view.tag == tag){
+                    for(UIImageView* view2 in view.subviews)
+                    {
+                        imgView = view2;
+                    }
+                }
+            }
+            
+            imgView.frame = cgRect;
+            [imgView setTag:999];
+            [self._maView addSubview:imgView];
+        } else {
+            _fullScreen = NO;
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+            
+            // Purge previous subviews
+            for(UIView* view in self._maView.subviews)
+            {
+                if (view.tag == 999){
+                    [view removeFromSuperview];
+                }
+            }
+            
+            
+            
+        }
+
+        
     }
+    
+    
 }
 
 

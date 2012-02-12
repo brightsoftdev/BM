@@ -25,6 +25,7 @@
 {
 
     IBOutlet UIScrollView*      _scrollView;
+    IBOutlet UIView*            _maView;
     IBOutlet UIPageControl*     _pageControl;
     IBOutlet UINavigationBar*   _navBar;
     IBOutlet UIBarButtonItem*   _refreshButton;
@@ -42,12 +43,14 @@
     DailyDemoiseilleApi* _dailyDemoiselleApi;
     BonjourCulApi* _bonjourCulApi;
     int _compteur;
+    bool _fullScreen;
 }
 
 @property(nonatomic, strong) UIScrollView* _scrollView;
+@property(nonatomic, strong) UIView* _maView;
 @property(nonatomic, strong) UIPageControl* _pageControl;
 @property(nonatomic, assign)  int _compteur;
-
+@property(nonatomic, assign)  bool _fullScreen;
 
 -(IBAction)changePage;
 -(IBAction)refresh;
