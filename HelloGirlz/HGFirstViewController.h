@@ -51,6 +51,6 @@
 -(void)updateImageFromUrl:(NSString*)iURL For:(NSString*) iKey;
 -(void)queryAPIs;
 -(NSString*)getKeyForPage:(NSInteger)iPage;
-- (void)loadImage:  (NSArray*) params;
+- (void)loadImageInBackGround:  (NSArray*) params;
 
 @end
