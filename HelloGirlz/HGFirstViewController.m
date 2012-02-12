@@ -8,15 +8,15 @@
 
 #import "HGFirstViewController.h"
 #import "Constants.h"
+#import "HorizontalTableCell.h"
+#import "ControlVariables.h"
 
 
 
 @implementation HGFirstViewController
-@synthesize _scrollView;
+@synthesize _verticaltableView;
 @synthesize _pageControl;
-@synthesize _compteur;
 @synthesize _maView;
-@synthesize _fullScreen;
 
 
 - (void)didReceiveMemoryWarning
@@ -73,11 +73,31 @@
 
 #pragma mark - View lifecycle
 
+- (void)awakeFromNib
+{
+    NSLog(@"HGFirstViewController::awakeFromNib");
+    [self._verticaltableView setBackgroundColor:kVerticalTableBackgroundColor];
+    self._verticaltableView.rowHeight = kCellHeight + (kRowVerticalPadding * 0.5) + ((kRowVerticalPadding * 0.5) * 0.5);
+}
+
 - (void)viewDidLoad
 {
     NSLog(@"HGFirstViewController::viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // EGO Pull down to refresh - init pull down view
+    if (_refreshHeaderView == nil) {
+        
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] 
+                                           initWithFrame:CGRectMake(0.0f, 
+                                                                    0.0f - self._verticaltableView.bounds.size.height, 
+                                                                    self.view.frame.size.width, 
+                                                                    self._verticaltableView.bounds.size.height)];
+		view.delegate = self;
+		[self._verticaltableView addSubview:view];
+		_refreshHeaderView = view;
+	}
     
     // Images initialization
     if(_imagesDic == nil)
@@ -96,8 +116,6 @@
 //        [_imagesDic setObject:aBlankImage forKey:kBonsoirMademoiselle];
     }
 
-    // Load Images in Scrollview
-    [self loadImages];
     
     // Init and Call Apis
     _bonjourMadameApi = [[BonjourMadameApi alloc] init];
@@ -136,10 +154,8 @@
     _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
     
     
-
     _compteur = 0;
     _fullScreen = NO;
-     
 }
 
 - (void)viewDidUnload
@@ -169,29 +185,110 @@
 	[super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+#pragma mark - table view delegates and datasouce
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+    NSLog(@"HGFirstViewController::numberOfSectionsInTableView");
+    return 1;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"HGFirstViewController::numberOfRowsInSection");
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"HGFirstViewController::cellForRowAtIndexPath");
+    static NSString *CellIdentifier = @"HorizontalCell";
+    
+    HorizontalTableCell *cell = (HorizontalTableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[HorizontalTableCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, tableView.frame.size.height)];
+    }
+    
+    cell.madames = _imagesDic;
+    
+    [cell.horizontalTableView reloadData];
+    
+    return cell;
+}
+
+#pragma mark -
+#pragma mark Data Source Loading / Reloading Methods
+
+- (void)reloadTableViewDataSource{
+    
+	//  should be calling your tableviews data source model to reload
+	//  put here just for demo
+	_reloading = YES;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    //    [[self tableViewItems] addObject:[NSString 
+    //                                      stringWithFormat:@"%@", 
+    //                                      [dateFormatter stringFromDate:[NSDate date]]]];
+    
+    [[self _verticaltableView] reloadData];
+    
+    [self doneLoadingTableViewData];
+}
+
+- (void)doneLoadingTableViewData{
+	//  model should call this when its done loading
+	_reloading = NO;
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self._verticaltableView];
+}
+
+
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
+    
+	[self performSelectorOnMainThread:@selector(reloadTableViewDataSource) withObject:nil waitUntilDone:NO];
+    
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
+    
+	return _reloading; // should return if data source model is reloading
+    
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
+    
+	return [NSDate date]; // should return date data source was last changed
+    
+}
+
+
 
 #pragma mark - UIScrollView delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    // Update the page when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = self._scrollView.frame.size.width;
-    int page = floor((self._scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    if(_pageControlBeingUsed == NO)
-        self._pageControl.currentPage = page;
+// UPDATE PAGECONTROL - A REFAIRE AVEC HORIZONTAL TABLE
+//    CGFloat pageWidth = self._scrollView.frame.size.width;
+//    int page = floor((self._scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+//    
+//    if(_pageControlBeingUsed == NO)
+//        self._pageControl.currentPage = page;
+    
     
     // Refresh page title
 //    NSLog(@"Refresh title for Page = %d",_pageControl.currentPage);
     _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+    
+    // EGO Pull down to refresh
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -202,21 +299,29 @@
     _pageControlBeingUsed = NO;
 }
 
+// PULL DOWN TO REFRESH
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+
 #pragma mark - IBAction responder methods
 
+// Methode appelée lorsqu'on clic sur le pageControl
 -(IBAction)changePage
 {
-    // update the scroll view to the appropriate page
-    CGRect frame;
-    frame.origin.x = self._scrollView.frame.size.width * self._pageControl.currentPage;
-    frame.origin.y = 0;
-    frame.size = self._scrollView.frame.size;
-    
-    
-    [self._scrollView scrollRectToVisible:frame animated:YES];
+    //A REFAIRE AVEC SCROLLING SUR HORIZONTAL TABLE
+//    // update the scroll view to the appropriate page
+//    CGRect frame;
+//    frame.origin.x = self._scrollView.frame.size.width * self._pageControl.currentPage;
+//    frame.origin.y = 0;
+//    frame.size = self._scrollView.frame.size;
+//    
+//    
+//    [self._scrollView scrollRectToVisible:frame animated:YES];
     
     _pageControlBeingUsed = YES;
-
 }
 
 -(IBAction)refresh
@@ -257,47 +362,49 @@
 
 -(void)loadImages
 {
-    // Purge previous subviews
-    for(UIView* view in self._scrollView.subviews)
-    {
-        [view removeFromSuperview];
-    }
-    
-    // Load Images in ScrollView
-    unsigned int i = 0;
-    //allkeys http://stackoverflow.com/questions/8640565/error-collection-nscfdictionary-0x563560-was-mutated-while-being-enume
-    for (NSString* key in [_imagesDic allKeys]) {
-//        NSLog(@"Loading image in scrollview for %@",key);
-        CGRect frame;
-        frame.origin.x = self._scrollView.frame.size.width * i;
-        frame.origin.y = 0;
-        frame.size = self._scrollView.frame.size;
-        
-//        NSLog(@"frame origin x = %f", frame.origin.x);
-//        NSLog(@"frame origin x = %f", frame.origin.x);
-//        NSLog(@"frame size width = %f", frame.size.width);
-//        NSLog(@"frame size heigh = %f", frame.size.height);
-        
-        UIView *subview = [[UIView alloc] initWithFrame:frame];
-
-//        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:subview.bounds];
-        
-        
-        [imgView setImage: [_imagesDic objectForKey:key] ];
-        imgView.contentMode = UIViewContentModeScaleAspectFit;
-        [subview addSubview:imgView];
-        [subview setTag:i];
-        
-        [self._scrollView addSubview:subview];
-
-
-        i++;
-        
-    }
+// A VIRER PLUS TARD - CONSERVE POUR REFERENCE (construction des subviews et des images dans conteneur)
+//    // Purge previous subviews
+//    for(UIView* view in self._scrollView.subviews)
+//    {
+//        [view removeFromSuperview];
+//    }
+//    
+//    // Load Images in ScrollView
+//    unsigned int i = 0;
+//    //allkeys http://stackoverflow.com/questions/8640565/error-collection-nscfdictionary-0x563560-was-mutated-while-being-enume
+//    for (NSString* key in [_imagesDic allKeys]) {
+////        NSLog(@"Loading image in scrollview for %@",key);
+//        CGRect frame;
+//        frame.origin.x = self._scrollView.frame.size.width * i;
+//        frame.origin.y = 0;
+//        frame.size = self._scrollView.frame.size;
+//        
+////        NSLog(@"frame origin x = %f", frame.origin.x);
+////        NSLog(@"frame origin x = %f", frame.origin.x);
+////        NSLog(@"frame size width = %f", frame.size.width);
+////        NSLog(@"frame size heigh = %f", frame.size.height);
+//        
+//        UIView *subview = [[UIView alloc] initWithFrame:frame];
+//
+////        UIImageView *imgView = [[UIImageView alloc] initWithFrame:self._scrollView.bounds];
+//        UIImageView *imgView = [[UIImageView alloc] initWithFrame:subview.bounds];
+//        
+//        
+//        [imgView setImage: [_imagesDic objectForKey:key] ];
+//        imgView.contentMode = UIViewContentModeScaleAspectFit;
+//        [subview addSubview:imgView];
+//        [subview setTag:i];
+//        
+//        [self._scrollView addSubview:subview];
+//
+//
+//        i++;
+//        
+//    }
     
     int aNbOfPages = [[_imagesDic allKeys] count];
-    self._scrollView.contentSize = CGSizeMake(self._scrollView.frame.size.width * aNbOfPages, self._scrollView.frame.size.height);
+    [_verticaltableView reloadData];
+//    self._scrollView.contentSize = CGSizeMake(self._scrollView.frame.size.width * aNbOfPages, self._scrollView.frame.size.height);
     
     _pageControl.numberOfPages = aNbOfPages;
     _pageControlBeingUsed = NO;
@@ -339,8 +446,6 @@
 
 }
 
-
-
 -(NSString*)getKeyForPage:(NSInteger)iPage
 {
 //    NSLog(@"gettingKeyForPage = %d",iPage);
@@ -359,66 +464,60 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    int tag = touch.view.tag;
-    NSLog(@"tag %d",tag);
-
-    //CGSize cgSize = cgRect.size;
-    //txtmail = [[UITextField alloc] initWithFrame:CGRectMake(0, cgSize.height/2, cgSize.width, 30) ];
-    //CGFloat pageWidth = self._scrollView.frame.size.width;
-    
-
-    
-    // recup du nombre de tap :
-    int nb = [[touches anyObject] tapCount];
-	
-	if(nb==2){
-        if (_fullScreen == NO) {
-            _fullScreen = YES;
-            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
-            CGRect cgRect =[[UIScreen mainScreen] bounds];
-            NSLog(@"double touche %d",nb);        
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:cgRect];
-            
-            
-            
-            
-            
-            
-            for(UIView* view in self._scrollView.subviews)
-            {
-                if (view.tag == tag){
-                    for(UIImageView* view2 in view.subviews)
-                    {
-                        imgView = view2;
-                    }
-                }
-            }
-            
-            imgView.frame = cgRect;
-            [imgView setTag:999];
-            [self._maView addSubview:imgView];
-        } else {
-            _fullScreen = NO;
-            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
-            
-            // Purge previous subviews
-            for(UIView* view in self._maView.subviews)
-            {
-                if (view.tag == 999){
-                    [view removeFromSuperview];
-                }
-            }
-            
-            
-            
-        }
-
-        
-    }
-    
-    
+// A REFAIRE EN CAPTANT LES TOUCHS DES TABLEAUX
+//    UITouch *touch = [touches anyObject];
+//    int tag = touch.view.tag;
+//    NSLog(@"tag %d",tag);
+//
+//    //CGSize cgSize = cgRect.size;
+//    //txtmail = [[UITextField alloc] initWithFrame:CGRectMake(0, cgSize.height/2, cgSize.width, 30) ];
+//    //CGFloat pageWidth = self._scrollView.frame.size.width;
+//    
+//
+//    
+//    // recup du nombre de tap :
+//    int nb = [[touches anyObject] tapCount];
+//	
+//	if(nb==2)
+//    {
+//        if (_fullScreen == NO) 
+//        {
+//            _fullScreen = YES;
+//            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+//            CGRect cgRect =[[UIScreen mainScreen] bounds];
+//            NSLog(@"double touche %d",nb);        
+//            UIImageView *imgView = [[UIImageView alloc] initWithFrame:cgRect];
+//            
+//            for(UIView* view in self._scrollView.subviews)
+//            {
+//                if (view.tag == tag)
+//                {
+//                    for(UIImageView* view2 in view.subviews)
+//                    {
+//                        imgView = view2;
+//                    }
+//                }
+//            }
+//            
+//            imgView.frame = cgRect;
+//            [imgView setTag:999];
+//            [self._maView addSubview:imgView];
+//        } 
+//        else 
+//        {
+//            _fullScreen = NO;
+//            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+//            
+//            // Purge previous subviews
+//            for(UIView* view in self._maView.subviews)
+//            {
+//                if (view.tag == 999){
+//                    [view removeFromSuperview];
+//                }
+//            }
+//            
+//        }
+//    }
 }
 
 

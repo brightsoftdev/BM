@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EGORefreshTableHeaderView.h"
 #import "HelloApi.h"
 #import "HGAppDelegate.h"
 #import "BonjourMadameApi.h"
@@ -21,36 +22,39 @@
 #import "BonjourCulApi.h"
 
 
-@interface HGFirstViewController : UIViewController<UIScrollViewDelegate, HelloApiDelegate>
+@interface HGFirstViewController : UIViewController<HelloApiDelegate, EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource>
 {
-
-    IBOutlet UIScrollView*      _scrollView;
+    
+//    IBOutlet UIScrollView*      _scrollView;
+    IBOutlet UITableView*       _verticaltableView;
     IBOutlet UIView*            _maView;
     IBOutlet UIPageControl*     _pageControl;
     IBOutlet UINavigationBar*   _navBar;
     IBOutlet UIBarButtonItem*   _refreshButton;
     
+    // EGO Pull down to refresh
+    EGORefreshTableHeaderView*  _refreshHeaderView;
+    BOOL _reloading;
+    
 @private
-    BOOL _pageControlBeingUsed;
-    NSMutableDictionary* _imagesDic;
-    BonjourMadameApi* _bonjourMadameApi;
-    OneDayOneBabeApi* _onebabeApi;
-    BonjourTetonApi* _tetonApi;
-    AuRevoirMadameApi* _aurevoirmadameApi;
+    BOOL                    _pageControlBeingUsed;
+    NSMutableDictionary*    _imagesDic;
+    BonjourMadameApi*       _bonjourMadameApi;
+    OneDayOneBabeApi*       _onebabeApi;
+    BonjourTetonApi*        _tetonApi;
+    AuRevoirMadameApi*      _aurevoirmadameApi;
     BonsoirMadamoiselleApi* _bonsoirmademoiselleApi;
-    SeinDuJourApi* _seindujourApi;
-    BonjourAsiatApi* _bonjourAsiatApi;
-    DailyDemoiseilleApi* _dailyDemoiselleApi;
-    BonjourCulApi* _bonjourCulApi;
-    int _compteur;
-    bool _fullScreen;
+    SeinDuJourApi*          _seindujourApi;
+    BonjourAsiatApi*        _bonjourAsiatApi;
+    DailyDemoiseilleApi*    _dailyDemoiselleApi;
+    BonjourCulApi*          _bonjourCulApi;
+    NSInteger               _compteur;
+    BOOL                    _fullScreen;
 }
 
-@property(nonatomic, strong) UIScrollView* _scrollView;
 @property(nonatomic, strong) UIView* _maView;
+@property(nonatomic, strong) UITableView* _verticaltableView;
 @property(nonatomic, strong) UIPageControl* _pageControl;
-@property(nonatomic, assign)  int _compteur;
-@property(nonatomic, assign)  bool _fullScreen;
 
 -(IBAction)changePage;
 -(IBAction)refresh;
@@ -59,5 +63,9 @@
 -(void)queryAPIs;
 -(NSString*)getKeyForPage:(NSInteger)iPage;
 - (void)loadImageInBackGround:  (NSArray*) params;
+
+// EGO PULL DOWN TO REFRESH
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @end
