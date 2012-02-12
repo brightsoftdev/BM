@@ -212,7 +212,8 @@
 -(IBAction)refresh
 {
     NSLog(@"Refreshing Madames...");
-    [self queryAPIs];
+   // [self queryAPIs];
+    [self performSelectorInBackground:@selector(queryAPIs) withObject:nil];
 
 }
 
