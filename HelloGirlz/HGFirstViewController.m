@@ -253,7 +253,9 @@
 
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
     
-	[self performSelectorOnMainThread:@selector(reloadTableViewDataSource) withObject:nil waitUntilDone:NO];
+	//[self performSelectorOnMainThread:@selector(reloadTableViewDataSource) withObject:nil waitUntilDone:NO];
+    NSLog(@"Refreshing Madames...");
+    [self performSelectorOnMainThread:@selector(queryAPIs) withObject:nil waitUntilDone:NO];
     
 }
 
@@ -303,6 +305,7 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
 	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+
 }
 
 
@@ -427,6 +430,7 @@
     //on compte le nombre d'image crées
     _compteur = _compteur + 1;
     [_refreshButton setEnabled:NO];
+    _reloading = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSLog(@"Construction de l'image en background :  %@",[params objectAtIndex:0]);
     NSData* data = [[NSData alloc] initWithContentsOfURL:[params objectAtIndex:1] options:NSDataReadingUncached error:nil];
@@ -441,7 +445,10 @@
     if (_compteur == 0) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [self loadImages];
+        
+        [[self _verticaltableView] reloadData];
         [_refreshButton setEnabled:YES];
+        [self doneLoadingTableViewData];
     }
 
 }
