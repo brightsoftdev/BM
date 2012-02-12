@@ -300,43 +300,34 @@
 
 -(void)updateImageFromUrl:(NSString*)iURL For:(NSString*) iKey;
 {
-//    NSLog(@"Begin loading image from url %@ for key %@",iURL,iKey);
     // init image from URL
     NSURL* aURL = [NSURL URLWithString:iURL];
-    //NSError* aErr = nil;
-    //NSData* data = [[NSData alloc] initWithContentsOfURL:aURL options:NSDataReadingUncached error:&aErr];
-    
     
     //Amau 12/02/2012
     //asynchronous task 
-    
     NSArray * params = [NSArray arrayWithObjects:iKey,aURL, nil];
     [self performSelectorInBackground:@selector(loadImageInBackGround:) withObject:params];
-    
- //UIImage* img = [[UIImage alloc] initWithData:data];
- //NSLog(@"End loading image from url %@ for key %@",iURL,iKey);
- //Update images dictionary
- //if(img != nil)
- //[_imagesDic setObject:img forKey:iKey];
 }
 
 
 
 - (void)loadImageInBackGround:  (NSArray*) params{
+    //on compte le nombre d'image crées
     _compteur = _compteur + 1;
-    NSLog(@"compeur = %d",_compteur);
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-   // UIImage* image = [[UIImage alloc] initWithData:data] ;
-   // [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
     NSLog(@"Construction de l'image en background :  %@",[params objectAtIndex:0]);
     NSData* data = [[NSData alloc] initWithContentsOfURL:[params objectAtIndex:1] options:NSDataReadingUncached error:nil];
     UIImage* img = [[UIImage alloc] initWithData:data];
     if(img != nil)
         [_imagesDic setObject:img forKey:[params objectAtIndex:0]];
+    else
+        NSLog(@"L'image n'est pas crée %@",[params objectAtIndex:0]);
+    
+    
     _compteur = _compteur - 1;
-    NSLog(@"compeur = %d",_compteur);
     if (_compteur == 0) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [self loadImages];
     }
 
 }

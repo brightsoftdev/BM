@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "350747144.597374"
+         timestampString = "350747755.585275"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "331"
-         endingLineNumber = "331"
+         startingLineNumber = "318"
+         endingLineNumber = "318"
          landmarkName = "-loadImageInBackGround:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -113,6 +113,20 @@
          startingLineNumber = "231"
          endingLineNumber = "231"
          landmarkName = "-queryAPIs"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "HelloGirlz/HGFirstViewController.m"
+         timestampString = "350747818.000716"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "324"
+         endingLineNumber = "324"
+         landmarkName = "-loadImageInBackGround:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
