@@ -25,7 +25,6 @@
 @interface HGFirstViewController : UIViewController<HelloApiDelegate, EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     
-//    IBOutlet UIScrollView*      _scrollView;
     IBOutlet UITableView*       _verticaltableView;
     IBOutlet UIView*            _maView;
     IBOutlet UIPageControl*     _pageControl;
@@ -39,6 +38,7 @@
 @private
     BOOL                    _pageControlBeingUsed;
     NSMutableDictionary*    _imagesDic;
+    UITableView *           _horizontalTableView;
     BonjourMadameApi*       _bonjourMadameApi;
     OneDayOneBabeApi*       _onebabeApi;
     BonjourTetonApi*        _tetonApi;

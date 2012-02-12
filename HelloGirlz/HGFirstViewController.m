@@ -206,13 +206,22 @@
     
     HorizontalTableCell *cell = (HorizontalTableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    
     if (cell == nil)
     {
         cell = [[HorizontalTableCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, tableView.frame.size.height)];
     }
     
+    // Register our class as delegate to track the scrolling of the horizontal table
+    cell.horizontalTableView.delegate = self;
+    
+    // Keep a local reference to the horizontal table view in order to control its scroll from the UIPageControl
+    _horizontalTableView = cell.horizontalTableView;
+    
+    // Pass the images to the HorizontalTableCell (to be replaced by better design of the Hello APIs) 
     cell.madames = _imagesDic;
     
+    // Refresh the cells of the horizontal table
     [cell.horizontalTableView reloadData];
     
     return cell;
@@ -277,16 +286,16 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-// UPDATE PAGECONTROL - A REFAIRE AVEC HORIZONTAL TABLE
-//    CGFloat pageWidth = self._scrollView.frame.size.width;
-//    int page = floor((self._scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-//    
-//    if(_pageControlBeingUsed == NO)
-//        self._pageControl.currentPage = page;
+    NSLog(@"HGFirstViewController::scrollViewDidScroll");
+    // Deduct the current page based on the cell width + horizontal offset (Y axis since table is rotated 90°)
+    CGFloat pageWidth = kCellWidth;
+    NSInteger page = floor((scrollView.contentOffset.y - pageWidth / 2) / pageWidth) + 1;
+    
+    if(_pageControlBeingUsed == NO)
+        self._pageControl.currentPage = page;
     
     
     // Refresh page title
-//    NSLog(@"Refresh title for Page = %d",_pageControl.currentPage);
     _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
     
     // EGO Pull down to refresh
@@ -314,16 +323,14 @@
 // Methode appelée lorsqu'on clic sur le pageControl
 -(IBAction)changePage
 {
-    //A REFAIRE AVEC SCROLLING SUR HORIZONTAL TABLE
-//    // update the scroll view to the appropriate page
-//    CGRect frame;
-//    frame.origin.x = self._scrollView.frame.size.width * self._pageControl.currentPage;
-//    frame.origin.y = 0;
-//    frame.size = self._scrollView.frame.size;
-//    
-//    
-//    [self._scrollView scrollRectToVisible:frame animated:YES];
+    // Deduct the frame to scroll to based on the horizontal table cell width + UIPageControl.currentPage
+    CGRect frame;
+    frame.origin.x = 0;
+    frame.origin.y = kCellWidth * self._pageControl.currentPage;
+    frame.size = _horizontalTableView.frame.size;
     
+    // Scroll to the frame
+    [_horizontalTableView scrollRectToVisible:frame animated:YES];
     _pageControlBeingUsed = YES;
 }
 
