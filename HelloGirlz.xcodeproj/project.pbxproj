@@ -57,7 +57,6 @@
 		2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */; };
 		2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */; };
 		2ED654EC14CF74560093E7D1 /* BonjourCulApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */; };
-		5C67A89D14E80B560019A39E /* myScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C67A89C14E80B560019A39E /* myScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,8 +133,6 @@
 		2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneDayOneBabeApi.m; sourceTree = "<group>"; };
 		2ED654EA14CF74560093E7D1 /* BonjourCulApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourCulApi.h; sourceTree = "<group>"; };
 		2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourCulApi.m; sourceTree = "<group>"; };
-		5C67A89B14E80B560019A39E /* myScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myScrollView.h; sourceTree = "<group>"; };
-		5C67A89C14E80B560019A39E /* myScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +172,6 @@
 				2E3BF2F914E8306C00C4DA26 /* HorizontalTableCell.m */,
 				2E3BF2FA14E8306C00C4DA26 /* MadameCell.h */,
 				2E3BF2FB14E8306C00C4DA26 /* MadameCell.m */,
-				5C67A89B14E80B560019A39E /* myScrollView.h */,
-				5C67A89C14E80B560019A39E /* myScrollView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -443,7 +438,6 @@
 				2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */,
 				2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */,
 				2ED654EC14CF74560093E7D1 /* BonjourCulApi.m in Sources */,
-				5C67A89D14E80B560019A39E /* myScrollView.m in Sources */,
 				2E3BF2FC14E8306C00C4DA26 /* HorizontalTableCell.m in Sources */,
 				2E3BF2FD14E8306C00C4DA26 /* MadameCell.m in Sources */,
 				2E3BF30F14E830FA00C4DA26 /* EGORefreshTableHeaderView.m in Sources */,

@@ -292,16 +292,19 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    //NSLog(@"HGFirstViewController::scrollViewDidScroll");
-    // Deduct the current page based on the cell width + horizontal offset (Y axis since table is rotated 90°)
-    CGFloat pageWidth = kCellWidth;
-    NSInteger page = floor((scrollView.contentOffset.y - pageWidth / 2) / pageWidth) + 1;
-    
-    if(_pageControlBeingUsed == NO)
-        self._pageControl.currentPage = page;
-    
-    // Refresh page title
-    _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+    if (_horizontalTableView == scrollView) 
+    {
+        //NSLog(@"HGFirstViewController::scrollViewDidScroll");
+        // Deduct the current page based on the cell width + horizontal offset (Y axis since table is rotated 90°)
+        CGFloat pageWidth = kCellWidth;
+        NSInteger page = floor((scrollView.contentOffset.y - pageWidth / 2) / pageWidth) + 1;
+        
+        if(_pageControlBeingUsed == NO)
+            self._pageControl.currentPage = page;
+        
+        // Refresh page title
+        _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+    }
     
     // EGO Pull down to refresh
     [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
@@ -504,63 +507,5 @@
     }
     return nil;
 }
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-// A REFAIRE EN CAPTANT LES TOUCHS DES TABLEAUX
-//    UITouch *touch = [touches anyObject];
-//    int tag = touch.view.tag;
-//    NSLog(@"tag %d",tag);
-//
-//    //CGSize cgSize = cgRect.size;
-//    //txtmail = [[UITextField alloc] initWithFrame:CGRectMake(0, cgSize.height/2, cgSize.width, 30) ];
-//    //CGFloat pageWidth = self._scrollView.frame.size.width;
-//    
-//
-//    
-//    // recup du nombre de tap :
-//    int nb = [[touches anyObject] tapCount];
-//	
-//	if(nb==2)
-//    {
-//        if (_fullScreen == NO) 
-//        {
-//            _fullScreen = YES;
-//            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
-//            CGRect cgRect =[[UIScreen mainScreen] bounds];
-//            NSLog(@"double touche %d",nb);        
-//            UIImageView *imgView = [[UIImageView alloc] initWithFrame:cgRect];
-//            
-//            for(UIView* view in self._scrollView.subviews)
-//            {
-//                if (view.tag == tag)
-//                {
-//                    for(UIImageView* view2 in view.subviews)
-//                    {
-//                        imgView = view2;
-//                    }
-//                }
-//            }
-//            
-//            imgView.frame = cgRect;
-//            [imgView setTag:999];
-//            [self._maView addSubview:imgView];
-//        } 
-//        else 
-//        {
-//            _fullScreen = NO;
-//            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
-//            
-//            // Purge previous subviews
-//            for(UIView* view in self._maView.subviews)
-//            {
-//                if (view.tag == 999){
-//                    [view removeFromSuperview];
-//                }
-//            }
-//            
-//        }
-//    }
-}
-
 
 @end
