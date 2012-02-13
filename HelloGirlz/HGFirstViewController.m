@@ -286,17 +286,20 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    //NSLog(@"HGFirstViewController::scrollViewDidScroll");
-    // Deduct the current page based on the cell width + horizontal offset (Y axis since table is rotated 90°)
-    CGFloat pageWidth = kCellWidth;
-    NSInteger page = floor((scrollView.contentOffset.y - pageWidth / 2) / pageWidth) + 1;
-    
-    if(_pageControlBeingUsed == NO)
-        self._pageControl.currentPage = page;
-    
-    
-    // Refresh page title
-    _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+    if (_horizontalTableView == scrollView) {
+        //NSLog(@"HGFirstViewController::scrollViewDidScroll");
+        // Deduct the current page based on the cell width + horizontal offset (Y axis since table is rotated 90°)
+        CGFloat pageWidth = kCellWidth;
+        NSInteger page = floor((scrollView.contentOffset.y - pageWidth / 2) / pageWidth) + 1;
+        
+        if(_pageControlBeingUsed == NO)
+            self._pageControl.currentPage = page;
+        
+        
+        // Refresh page title
+        _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+    }
+
     
     // EGO Pull down to refresh
     [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
