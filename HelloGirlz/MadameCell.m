@@ -39,4 +39,10 @@
     return self;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+
+int nb = [[touches anyObject] tapCount];
+NSLog(@"Nombre de touches dans MadameCell.m %d",nb);
+}
+
 @end

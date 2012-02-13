@@ -286,7 +286,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    NSLog(@"HGFirstViewController::scrollViewDidScroll");
+    //NSLog(@"HGFirstViewController::scrollViewDidScroll");
     // Deduct the current page based on the cell width + horizontal offset (Y axis since table is rotated 90°)
     CGFloat pageWidth = kCellWidth;
     NSInteger page = floor((scrollView.contentOffset.y - pageWidth / 2) / pageWidth) + 1;
