@@ -66,6 +66,14 @@
     {
         [self updateImageFromUrl:url For:kBonjourLeCul];
     }
+    else if(api == _bonjourLatineApi)
+    {
+        [self updateImageFromUrl:url For:kBonjourLatine];
+    }
+    else if(api == _bonjourDecolleteApi)
+    {
+        [self updateImageFromUrl:url For:kBonjourDecollete];
+    }
     
     [self loadImages];
 
@@ -119,6 +127,8 @@
         [_imagesDic setObject:aBlankImage forKey:kAuRevoirMadame];
         [_imagesDic setObject:aBlankImage forKey:kBonjourTeton];
         [_imagesDic setObject:aBlankImage forKey:kBonjourLeCul];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourLatine];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourDecollete];
 //        [_imagesDic setObject:aBlankImage forKey:kBonsoirMademoiselle];
     }
 
@@ -153,6 +163,11 @@
     _bonjourCulApi = [[BonjourCulApi alloc] init];
     _bonjourCulApi._delegate = self;
     
+    _bonjourLatineApi = [[BonjourLatine alloc] init];
+    _bonjourLatineApi._delegate = self;
+    
+    _bonjourDecolleteApi = [[BonjourDecollete alloc] init];
+    _bonjourDecolleteApi._delegate = self;
     [self queryAPIs];
     
     // Set Page Title
@@ -406,7 +421,9 @@
     
     if(_bonjourCulApi)      [_bonjourCulApi getDailyPhotoURL:TRUE];
     
-
+    if(_bonjourLatineApi)   [_bonjourLatineApi getDailyPhotoURL:TRUE];
+    
+    if(_bonjourDecolleteApi)   [_bonjourDecolleteApi getDailyPhotoURL:TRUE];
 }
 
 -(void)loadImages

@@ -16,3 +16,5 @@ extern NSString * const kAuRevoirMadame;
 extern NSString * const kBonjourTeton;
 extern NSString * const kBonsoirMademoiselle;
 extern NSString * const kBonjourLeCul;
+extern NSString * const kBonjourLatine;
+extern NSString * const kBonjourDecollete;

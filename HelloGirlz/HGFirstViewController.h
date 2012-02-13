@@ -20,7 +20,8 @@
 #import "BonjourTatoosApi.h"
 #import "DailyDemoiseilleApi.h"
 #import "BonjourCulApi.h"
-
+#import "BonjourLatine.h"
+#import "BonjourDecollete.h"
 
 @interface HGFirstViewController : UIViewController<HelloApiDelegate, EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource>
 {
@@ -48,6 +49,8 @@
     BonjourAsiatApi*        _bonjourAsiatApi;
     DailyDemoiseilleApi*    _dailyDemoiselleApi;
     BonjourCulApi*          _bonjourCulApi;
+    BonjourLatine*          _bonjourLatineApi;
+    BonjourDecollete*       _bonjourDecolleteApi;
     NSInteger               _compteur;
     BOOL                    _fullScreen;
 }
