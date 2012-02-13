@@ -28,7 +28,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "225"
          endingLineNumber = "225"
-         landmarkName = "-reloadTableViewDataSource"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -98,8 +98,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "253"
          endingLineNumber = "253"
-         landmarkName = "@implementation HGFirstViewController"
-         landmarkType = "3">
+         landmarkName = "-doneLoadingTableViewData"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -126,7 +126,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "333"
          endingLineNumber = "333"
-         landmarkName = "-refresh"
+         landmarkName = "-changePage"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -168,7 +168,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "369"
          endingLineNumber = "369"
-         landmarkName = "-loadImages"
+         landmarkName = "-queryAPIs"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -196,7 +196,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "370"
          endingLineNumber = "370"
-         landmarkName = "-loadImages"
+         landmarkName = "-queryAPIs"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -224,8 +224,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "258"
          endingLineNumber = "258"
-         landmarkName = "-egoRefreshTableHeaderDidTriggerRefresh:"
-         landmarkType = "5">
+         landmarkName = "@implementation HGFirstViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -238,7 +238,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "264"
          endingLineNumber = "264"
-         landmarkName = "-egoRefreshTableHeaderDataSourceIsLoading:"
+         landmarkName = "-egoRefreshTableHeaderDidTriggerRefresh:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -252,8 +252,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "270"
          endingLineNumber = "270"
-         landmarkName = "-egoRefreshTableHeaderDataSourceLastUpdated:"
-         landmarkType = "5">
+         landmarkName = "@implementation HGFirstViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -266,7 +266,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "301"
          endingLineNumber = "301"
-         landmarkName = "-scrollViewDidEndDecelerating:"
+         landmarkName = "-scrollViewDidScroll:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
