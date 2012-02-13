@@ -357,17 +357,25 @@
     if(_fullScreen == FALSE)
     {
         //Enter fullscreen
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
         UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
         UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
         aFreshImageView.tag = kTagForFullScreenView;
-        aFreshImageView.frame = CGRectMake(0.0, 0.0, kiPhoneScreenWidth, kiPhoneScreenHeight);
-        [self.view addSubview:aFreshImageView];
+        //aFreshImageView.frame = CGRectMake(0.0, 0.0, kiPhoneScreenWidth, kiPhoneScreenHeight);
+        aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
+        HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.window addSubview:aFreshImageView];
+        
+        //[self.view addSubview:aFreshImageView];
         _fullScreen = TRUE;
     }
     else
     {
         //Exit fullscreen
-        [[self.view viewWithTag:kTagForFullScreenView] removeFromSuperview];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+        HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
+        //[appDelegate.window addSubview:aFreshImageView];
+        [[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
         _fullScreen = FALSE;
     }
 }
