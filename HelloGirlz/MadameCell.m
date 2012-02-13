@@ -39,10 +39,16 @@
     return self;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-
-int nb = [[touches anyObject] tapCount];
-NSLog(@"Nombre de touches dans MadameCell.m %d",nb);
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event 
+{
+    NSInteger nbTouches = [[touches anyObject] tapCount];
+    NSLog(@"Nombre de touches dans MadameCell.m %d",nbTouches);
+    if(nbTouches == 2)
+    {
+        // Notify whoever registered to the FULLSCREENDSP Notification that a fullscreen is needed
+        NSDictionary* data = [NSDictionary dictionaryWithObject:self.thumbnail forKey:@"imgview"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FULLSCREENDSP" object:self userInfo:data];
+    }
 }
 
 @end

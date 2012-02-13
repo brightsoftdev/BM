@@ -86,6 +86,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    // Registrations to notification center here
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedFullScreenNotification:) 
+                                                 name:@"FULLSCREENDSP"
+                                               object:nil];
+    
     // EGO Pull down to refresh - init pull down view
     if (_refreshHeaderView == nil) {
         
@@ -155,7 +161,7 @@
     
     
     _compteur = 0;
-    _fullScreen = NO;
+    _fullScreen = FALSE;
 }
 
 - (void)viewDidUnload
@@ -294,7 +300,6 @@
     if(_pageControlBeingUsed == NO)
         self._pageControl.currentPage = page;
     
-    
     // Refresh page title
     _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
     
@@ -340,6 +345,29 @@
     [self queryAPIs];
 }
 
+
+#pragma mark - Notification Center callbacks
+
+- (void)receivedFullScreenNotification:(NSNotification *)notification 
+{
+    NSLog(@"HGFirstViewController::receivedFullScreenNotification");
+    if(_fullScreen == FALSE)
+    {
+        //Enter fullscreen
+        UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
+        UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
+        aFreshImageView.tag = kTagForFullScreenView;
+        aFreshImageView.frame = CGRectMake(0.0, 0.0, kiPhoneScreenWidth, kiPhoneScreenHeight);
+        [self.view addSubview:aFreshImageView];
+        _fullScreen = TRUE;
+    }
+    else
+    {
+        //Exit fullscreen
+        [[self.view viewWithTag:kTagForFullScreenView] removeFromSuperview];
+        _fullScreen = FALSE;
+    }
+}
 
 #pragma mark - Other methods
 
