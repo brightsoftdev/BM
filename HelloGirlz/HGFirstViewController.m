@@ -379,6 +379,8 @@
         //aFreshImageView.frame = CGRectMake(0.0, 0.0, kiPhoneScreenWidth, kiPhoneScreenHeight);
         aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
         HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
+        aFreshImageView.contentMode = UIViewContentModeScaleAspectFit;
+        aFreshImageView.backgroundColor = [UIColor blackColor];
         [appDelegate.window addSubview:aFreshImageView];
         
         //[self.view addSubview:aFreshImageView];
