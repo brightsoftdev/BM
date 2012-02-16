@@ -369,6 +369,8 @@
 - (void)receivedFullScreenNotification:(NSNotification *)notification 
 {
     NSLog(@"HGFirstViewController::receivedFullScreenNotification");
+    HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     if(_fullScreen == FALSE)
     {
         //Enter fullscreen
@@ -377,10 +379,19 @@
         UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
         aFreshImageView.tag = kTagForFullScreenView;
         //aFreshImageView.frame = CGRectMake(0.0, 0.0, kiPhoneScreenWidth, kiPhoneScreenHeight);
+        
+        
+        //CGRect newFrame = [self.view convertRect:imgViewFromCell.frame toView:nil];
+    
+        
+        
         aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
-        HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
+        
+
         aFreshImageView.contentMode = UIViewContentModeScaleAspectFit;
         aFreshImageView.backgroundColor = [UIColor blackColor];
+        
+
         [appDelegate.window addSubview:aFreshImageView];
         
         //[self.view addSubview:aFreshImageView];
@@ -390,7 +401,6 @@
     {
         //Exit fullscreen
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-        HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
         //[appDelegate.window addSubview:aFreshImageView];
         [[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
         _fullScreen = FALSE;
