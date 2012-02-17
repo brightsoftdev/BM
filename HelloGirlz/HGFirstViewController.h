@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Three20/Three20.h"
 #import "EGORefreshTableHeaderView.h"
 #import "HelloApi.h"
 #import "HGAppDelegate.h"
