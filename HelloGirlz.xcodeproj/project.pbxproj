@@ -57,7 +57,6 @@
 		2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */; };
 		2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */; };
 		2ED654EC14CF74560093E7D1 /* BonjourCulApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */; };
-		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		5C8AC56D14E9C94E00602D2B /* BonjourLatine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC56C14E9C94D00602D2B /* BonjourLatine.m */; };
 		5C8AC57014E9CBA800602D2B /* BonjourDecollete.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC56F14E9CBA700602D2B /* BonjourDecollete.m */; };
 /* End PBXBuildFile section */
@@ -136,15 +135,10 @@
 		2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneDayOneBabeApi.m; sourceTree = "<group>"; };
 		2ED654EA14CF74560093E7D1 /* BonjourCulApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourCulApi.h; sourceTree = "<group>"; };
 		2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourCulApi.m; sourceTree = "<group>"; };
-		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
 		5C8AC56B14E9C94D00602D2B /* BonjourLatine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourLatine.h; sourceTree = "<group>"; };
 		5C8AC56C14E9C94D00602D2B /* BonjourLatine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourLatine.m; sourceTree = "<group>"; };
 		5C8AC56E14E9CBA700602D2B /* BonjourDecollete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourDecollete.h; sourceTree = "<group>"; };
 		5C8AC56F14E9CBA700602D2B /* BonjourDecollete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourDecollete.m; sourceTree = "<group>"; };
-		5CD32A2F14EC82330098514E /* libThree20Core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libThree20Core.a; path = "../../../../Library/Developer/Xcode/DerivedData/HelloGirlz-bbfbjplnouhvkjbbueinqeqpxuiu/Build/Products/Debug-iphoneos/libThree20Core.a"; sourceTree = "<group>"; };
-		5CD32A3014EC82330098514E /* libThree20Network.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libThree20Network.a; path = "../../../../Library/Developer/Xcode/DerivedData/HelloGirlz-bbfbjplnouhvkjbbueinqeqpxuiu/Build/Products/Debug-iphoneos/libThree20Network.a"; sourceTree = "<group>"; };
-		5CD32A3114EC82330098514E /* libThree20Style.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libThree20Style.a; path = "../../../../Library/Developer/Xcode/DerivedData/HelloGirlz-bbfbjplnouhvkjbbueinqeqpxuiu/Build/Products/Debug-iphoneos/libThree20Style.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
 				2E3BF31914E835CF00C4DA26 /* QuartzCore.framework in Frameworks */,
 				2E8AAF2314C0D2EA00891B40 /* UIKit.framework in Frameworks */,
 				2E8AAF2514C0D2EA00891B40 /* Foundation.framework in Frameworks */,
@@ -219,7 +212,6 @@
 		2E3BF30614E830FA00C4DA26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				2E3BF30714E830FA00C4DA26 /* blackArrow.png */,
 				2E3BF30814E830FA00C4DA26 /* blackArrow@2x.png */,
 				2E3BF30914E830FA00C4DA26 /* blueArrow.png */,
@@ -293,9 +285,6 @@
 		2E8AAF1314C0D2EA00891B40 = {
 			isa = PBXGroup;
 			children = (
-				5CD32A2F14EC82330098514E /* libThree20Core.a */,
-				5CD32A3014EC82330098514E /* libThree20Network.a */,
-				5CD32A3114EC82330098514E /* libThree20Style.a */,
 				2E3BF31814E835CF00C4DA26 /* QuartzCore.framework */,
 				2EB9E3AF14C4CBF100539073 /* libxml2.2.dylib */,
 				2E8AAF2814C0D2EA00891B40 /* HelloGirlz */,
@@ -315,7 +304,6 @@
 		2E8AAF2114C0D2EA00891B40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
 				2E8AAF2214C0D2EA00891B40 /* UIKit.framework */,
 				2E8AAF2414C0D2EA00891B40 /* Foundation.framework */,
 				2E8AAF2614C0D2EA00891B40 /* CoreGraphics.framework */,
@@ -518,15 +506,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"../../../../Desktop/facebook-three20-089a89c/Build/Products/three20",
-					"$(BUILT_PRODUCTS_DIR)/../three20",
-					"$(BUILT_PRODUCTS_DIR)/../../three20",
-					three20/Build/Products/three20,
-				);
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -546,16 +527,9 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"../../../../Desktop/facebook-three20-089a89c/Build/Products/three20",
-					"$(BUILT_PRODUCTS_DIR)/../three20",
-					"$(BUILT_PRODUCTS_DIR)/../../three20",
-					three20/Build/Products/three20,
-				);
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -576,7 +550,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/HelloGirlz\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/HelloGirlz-bbfbjplnouhvkjbbueinqeqpxuiu/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -596,7 +569,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/HelloGirlz\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/HelloGirlz-bbfbjplnouhvkjbbueinqeqpxuiu/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
