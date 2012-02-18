@@ -21,7 +21,6 @@
 		2E3BF31514E830FA00C4DA26 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3BF30C14E830FA00C4DA26 /* grayArrow@2x.png */; };
 		2E3BF31614E830FA00C4DA26 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3BF30D14E830FA00C4DA26 /* whiteArrow.png */; };
 		2E3BF31714E830FA00C4DA26 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3BF30E14E830FA00C4DA26 /* whiteArrow@2x.png */; };
-		2E3BF31914E835CF00C4DA26 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3BF31814E835CF00C4DA26 /* QuartzCore.framework */; };
 		2E4F657814C0E18D00A7E4E3 /* ar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657014C0E18D00A7E4E3 /* ar.jpg */; };
 		2E4F657914C0E18D00A7E4E3 /* asiat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657114C0E18D00A7E4E3 /* asiat.jpg */; };
 		2E4F657A14C0E18D00A7E4E3 /* bc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F657214C0E18D00A7E4E3 /* bc.jpg */; };
@@ -322,7 +321,6 @@
 				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
 				320A5A189C235877202780D5 /* libThree20Network.a in Frameworks */,
 				320CC833B8AF0ACFD35E6225 /* libThree20Style.a in Frameworks */,
-				2E3BF31914E835CF00C4DA26 /* QuartzCore.framework in Frameworks */,
 				2E8AAF2314C0D2EA00891B40 /* UIKit.framework in Frameworks */,
 				2E8AAF2514C0D2EA00891B40 /* Foundation.framework in Frameworks */,
 				2E8AAF2714C0D2EA00891B40 /* CoreGraphics.framework in Frameworks */,
@@ -634,7 +632,7 @@
 		2E8AAF1514C0D2EA00891B40 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = none;
 			};
 			buildConfigurationList = 2E8AAF1814C0D2EA00891B40 /* Build configuration list for PBXProject "HelloGirlz" */;
