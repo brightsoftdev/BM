@@ -23,6 +23,7 @@
 #import "BonjourCulApi.h"
 #import "BonjourLatine.h"
 #import "BonjourDecollete.h"
+#import "BonjourCulotte.h"
 
 
 @interface HGFirstViewController : UIViewController<HelloApiDelegate, EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -54,6 +55,7 @@
     BonjourCulApi*          _bonjourCulApi;
     BonjourLatine*          _bonjourLatineApi;
     BonjourDecollete*       _bonjourDecolleteApi;
+    BonjourCulotte*         _bonjourCulotteApi;
     NSInteger               _compteur;
     BOOL                    _fullScreen;
 }

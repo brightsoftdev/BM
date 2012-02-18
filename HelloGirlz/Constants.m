@@ -18,3 +18,4 @@ NSString * const kBonsoirMademoiselle   = @"Bonsoir Mademoiselle";
 NSString * const kBonjourLeCul          = @"Bonjour Le Cul";
 NSString * const kBonjourLatine         = @"Bonjour Latine";
 NSString * const kBonjourDecollete      = @"Bonjour Décolleté";
+NSString * const kBonjourCulotte        = @"Bonjour Culotte";
