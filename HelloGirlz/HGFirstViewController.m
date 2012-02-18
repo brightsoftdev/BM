@@ -81,11 +81,14 @@
     {
         [self updateImageFromUrl:url For:kBonjourCulotte];
     }    
-    else if(api == _bonjourAmatrice)
+    else if(api == _bonjourAmatriceApi)
     {
         [self updateImageFromUrl:url For:kBonjourAmatrice];
     }    
-    
+    else if(api == _bonjourCoquineApi)
+    {
+        [self updateImageFromUrl:url For:kBonjourCoquine];
+    }       
     
     
     
@@ -145,6 +148,7 @@
         [_imagesDic setObject:aBlankImage forKey:kBonjourDecollete];
         [_imagesDic setObject:aBlankImage forKey:kBonjourCulotte];
         [_imagesDic setObject:aBlankImage forKey:kBonjourAmatrice];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourCoquine];
 //        [_imagesDic setObject:aBlankImage forKey:kBonsoirMademoiselle];
     }
     
@@ -164,6 +168,7 @@
         [_urlDic setObject:@"" forKey:kBonjourDecollete];
         [_urlDic setObject:@"" forKey:kBonjourCulotte];
         [_urlDic setObject:@"" forKey:kBonjourAmatrice];
+        [_urlDic setObject:@"" forKey:kBonjourCoquine];
     }
 
     
@@ -206,10 +211,11 @@
     _bonjourCulotteApi = [[BonjourCulotte alloc] init];
     _bonjourCulotteApi._delegate = self;
     
-    _bonjourAmatrice = [[BonjourAmatrice alloc] init];
-    _bonjourAmatrice._delegate = self;    
+    _bonjourAmatriceApi = [[BonjourAmatrice alloc] init];
+    _bonjourAmatriceApi._delegate = self;    
     
-    
+    _bonjourCoquineApi = [[BonjourCoquine alloc] init];
+    _bonjourCoquineApi._delegate = self; 
     
     [self queryAPIs];
     
@@ -488,7 +494,9 @@
     
     if(_bonjourCulotteApi)  [_bonjourCulotteApi getDailyPhotoURL:TRUE];
     
-    if(_bonjourAmatrice)  [_bonjourAmatrice getDailyPhotoURL:TRUE];
+    if(_bonjourAmatriceApi)  [_bonjourAmatriceApi getDailyPhotoURL:TRUE];
+    
+    if(_bonjourCoquineApi)  [_bonjourCoquineApi getDailyPhotoURL:TRUE];
 }
 
 -(void)loadImages

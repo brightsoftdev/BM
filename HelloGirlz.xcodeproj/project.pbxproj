@@ -72,6 +72,7 @@
 		5C8AC57014E9CBA800602D2B /* BonjourDecollete.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC56F14E9CBA700602D2B /* BonjourDecollete.m */; };
 		5C8E8F4714F01D9500437E32 /* BonjourCulotte.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E8F4614F01D9500437E32 /* BonjourCulotte.m */; };
 		5C8E8F4A14F01FB800437E32 /* BonjourAmatrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E8F4914F01FB800437E32 /* BonjourAmatrice.m */; };
+		5C8E8F4D14F0211A00437E32 /* BonjourCoquine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E8F4C14F0211900437E32 /* BonjourCoquine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -321,6 +322,8 @@
 		5C8E8F4614F01D9500437E32 /* BonjourCulotte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourCulotte.m; sourceTree = "<group>"; };
 		5C8E8F4814F01FB800437E32 /* BonjourAmatrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourAmatrice.h; sourceTree = "<group>"; };
 		5C8E8F4914F01FB800437E32 /* BonjourAmatrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourAmatrice.m; sourceTree = "<group>"; };
+		5C8E8F4B14F0211900437E32 /* BonjourCoquine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourCoquine.h; sourceTree = "<group>"; };
+		5C8E8F4C14F0211900437E32 /* BonjourCoquine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourCoquine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +469,8 @@
 				5C8E8F4614F01D9500437E32 /* BonjourCulotte.m */,
 				5C8E8F4814F01FB800437E32 /* BonjourAmatrice.h */,
 				5C8E8F4914F01FB800437E32 /* BonjourAmatrice.m */,
+				5C8E8F4B14F0211900437E32 /* BonjourCoquine.h */,
+				5C8E8F4C14F0211900437E32 /* BonjourCoquine.m */,
 			);
 			name = HelloApi;
 			sourceTree = "<group>";
@@ -884,6 +889,7 @@
 				2ECAAACB14EF225E002E7086 /* PhotoViewController.m in Sources */,
 				5C8E8F4714F01D9500437E32 /* BonjourCulotte.m in Sources */,
 				5C8E8F4A14F01FB800437E32 /* BonjourAmatrice.m in Sources */,
+				5C8E8F4D14F0211A00437E32 /* BonjourCoquine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

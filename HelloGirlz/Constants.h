@@ -20,3 +20,4 @@ extern NSString * const kBonjourLatine;
 extern NSString * const kBonjourDecollete;
 extern NSString * const kBonjourCulotte;
 extern NSString * const kBonjourAmatrice;
+extern NSString * const kBonjourCoquine;
