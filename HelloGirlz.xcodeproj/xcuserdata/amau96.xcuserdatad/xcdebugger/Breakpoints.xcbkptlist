@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "351280888.650325"
+         timestampString = "351281320.528552"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "414"
-         endingLineNumber = "414"
+         startingLineNumber = "430"
+         endingLineNumber = "430"
          landmarkName = "-receivedFullScreenNotification:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "351280888.650325"
+         timestampString = "351281320.528552"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "426"
-         endingLineNumber = "426"
+         startingLineNumber = "442"
+         endingLineNumber = "442"
          landmarkName = "-receivedFullScreenNotification:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HelloGirlz/HGFirstViewController.m"
-         timestampString = "351280888.650325"
+         timestampString = "351281320.528552"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "430"
-         endingLineNumber = "430"
+         startingLineNumber = "446"
+         endingLineNumber = "446"
          landmarkName = "-receivedFullScreenNotification:"
          landmarkType = "5">
       </FileBreakpoint>

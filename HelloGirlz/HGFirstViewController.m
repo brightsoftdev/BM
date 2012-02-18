@@ -81,6 +81,14 @@
     {
         [self updateImageFromUrl:url For:kBonjourCulotte];
     }    
+    else if(api == _bonjourAmatrice)
+    {
+        [self updateImageFromUrl:url For:kBonjourAmatrice];
+    }    
+    
+    
+    
+    
     [self loadImages];
 
 }
@@ -136,6 +144,7 @@
         [_imagesDic setObject:aBlankImage forKey:kBonjourLatine];
         [_imagesDic setObject:aBlankImage forKey:kBonjourDecollete];
         [_imagesDic setObject:aBlankImage forKey:kBonjourCulotte];
+        [_imagesDic setObject:aBlankImage forKey:kBonjourAmatrice];
 //        [_imagesDic setObject:aBlankImage forKey:kBonsoirMademoiselle];
     }
     
@@ -154,6 +163,7 @@
         [_urlDic setObject:@"" forKey:kBonjourLatine];
         [_urlDic setObject:@"" forKey:kBonjourDecollete];
         [_urlDic setObject:@"" forKey:kBonjourCulotte];
+        [_urlDic setObject:@"" forKey:kBonjourAmatrice];
     }
 
     
@@ -195,6 +205,12 @@
     
     _bonjourCulotteApi = [[BonjourCulotte alloc] init];
     _bonjourCulotteApi._delegate = self;
+    
+    _bonjourAmatrice = [[BonjourAmatrice alloc] init];
+    _bonjourAmatrice._delegate = self;    
+    
+    
+    
     [self queryAPIs];
     
     // Set Page Title
@@ -471,6 +487,8 @@
     if(_bonjourDecolleteApi)[_bonjourDecolleteApi getDailyPhotoURL:TRUE];
     
     if(_bonjourCulotteApi)  [_bonjourCulotteApi getDailyPhotoURL:TRUE];
+    
+    if(_bonjourAmatrice)  [_bonjourAmatrice getDailyPhotoURL:TRUE];
 }
 
 -(void)loadImages
