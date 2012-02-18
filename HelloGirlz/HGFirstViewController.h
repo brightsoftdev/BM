@@ -40,6 +40,7 @@
 @private
     BOOL                    _pageControlBeingUsed;
     NSMutableDictionary*    _imagesDic;
+    NSMutableDictionary*    _urlDic;
     UITableView *           _horizontalTableView;
     BonjourMadameApi*       _bonjourMadameApi;
     OneDayOneBabeApi*       _onebabeApi;

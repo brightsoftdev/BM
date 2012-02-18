@@ -10,6 +10,9 @@
 #import "Constants.h"
 #import "HorizontalTableCell.h"
 #import "ControlVariables.h"
+#import "PhotoViewController.h"
+#import "PhotoSet.h"
+#import "Photo.h"
 
 
 
@@ -130,6 +133,22 @@
         [_imagesDic setObject:aBlankImage forKey:kBonjourLatine];
         [_imagesDic setObject:aBlankImage forKey:kBonjourDecollete];
 //        [_imagesDic setObject:aBlankImage forKey:kBonsoirMademoiselle];
+    }
+    
+    // Url dictionnary initialization
+    if(_urlDic == nil)
+    {
+        _urlDic = [NSMutableDictionary dictionary];
+        [_urlDic setObject:@"" forKey:kBonjourMadameName];
+        [_urlDic setObject:@"" forKey:kDailyDemoiselle];
+        [_urlDic setObject:@"" forKey:kOneDayOneBabe];
+        [_urlDic setObject:@"" forKey:kBonjourLasiat];
+        [_urlDic setObject:@"" forKey:kSeinDuJour];
+        [_urlDic setObject:@"" forKey:kAuRevoirMadame];
+        [_urlDic setObject:@"" forKey:kBonjourTeton];
+        [_urlDic setObject:@"" forKey:kBonjourLeCul];
+        [_urlDic setObject:@"" forKey:kBonjourLatine];
+        [_urlDic setObject:@"" forKey:kBonjourDecollete];
     }
 
     
@@ -281,24 +300,22 @@
 #pragma mark -
 #pragma mark EGORefreshTableHeaderDelegate Methods
 
-- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
-    
-	//[self performSelectorOnMainThread:@selector(reloadTableViewDataSource) withObject:nil waitUntilDone:NO];
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
+{
     NSLog(@"Refreshing Madames...");
     [self performSelectorOnMainThread:@selector(queryAPIs) withObject:nil waitUntilDone:NO];
     
 }
 
-- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
-    
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
+{
 	return _reloading; // should return if data source model is reloading
     
 }
 
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
-    
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
+{
 	return [NSDate date]; // should return date data source was last changed
-    
 }
 
 
@@ -374,35 +391,43 @@
     if(_fullScreen == FALSE)
     {
         //Enter fullscreen
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
-        UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
-        UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
-        aFreshImageView.tag = kTagForFullScreenView;
-        //aFreshImageView.frame = CGRectMake(0.0, 0.0, kiPhoneScreenWidth, kiPhoneScreenHeight);
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+//        UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
+//        UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
+//        aFreshImageView.tag = kTagForFullScreenView;
+//        aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
+//        aFreshImageView.contentMode = UIViewContentModeScaleAspectFit;
+//        aFreshImageView.backgroundColor = [UIColor blackColor];
+//        
+//        [appDelegate.window addSubview:aFreshImageView];
         
+        NSMutableArray* aPhotosArr = [[NSMutableArray alloc] init];
         
-        //CGRect newFrame = [self.view convertRect:imgViewFromCell.frame toView:nil];
-    
+        for(NSString* key in _urlDic)
+        {
+            // TODO create the array of Photo objects (needs photo URLs)
+            NSString* aURL = [_urlDic objectForKey:key];
+            if(aURL)   
+            {
+                NSLog(@"HGFirstViewController::receivedFullScreenNotification - adding URL %@ to the Photo array",aURL);
+                Photo* aPhoto = [[Photo alloc] initWithCaption:key urlLarge:aURL urlSmall:aURL urlThumb:aURL size:CGSizeMake(320, 320)];
+                [aPhotosArr addObject:aPhoto];
+            }
+        }
         
+        PhotoSet* aPhotoSet = [[PhotoSet alloc] initWithTitle:@"toto" photos:aPhotosArr];
+        TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://appPhotos"] applyQuery:[NSDictionary dictionaryWithObject:aPhotoSet forKey:@"kPhotoSet"]] applyAnimated:YES];
+        NSLog(@"debug 3");
         
-        aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
-        
+        [[TTNavigator navigator] openURLAction:action];
 
-        aFreshImageView.contentMode = UIViewContentModeScaleAspectFit;
-        aFreshImageView.backgroundColor = [UIColor blackColor];
-        
-
-        [appDelegate.window addSubview:aFreshImageView];
-        
-        //[self.view addSubview:aFreshImageView];
         _fullScreen = TRUE;
     }
     else
     {
         //Exit fullscreen
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-        //[appDelegate.window addSubview:aFreshImageView];
-        [[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
+//        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+//        [[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
         _fullScreen = FALSE;
     }
 }
@@ -497,6 +522,9 @@
     //asynchronous task 
     NSArray * params = [NSArray arrayWithObjects:iKey,aURL, nil];
     [self performSelectorInBackground:@selector(loadImageInBackGround:) withObject:params];
+    
+    // Update url dictionary
+    [_urlDic setObject:iURL forKey:iKey];
 }
 
 

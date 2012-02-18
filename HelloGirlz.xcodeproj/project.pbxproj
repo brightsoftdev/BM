@@ -56,6 +56,9 @@
 		2ECA434014C8DEA600562E40 /* BonjourTatoosApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA433F14C8DEA600562E40 /* BonjourTatoosApi.m */; };
 		2ECA434314C8E05F00562E40 /* DailyDemoiseilleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */; };
 		2ECA434614C8E23A00562E40 /* OneDayOneBabeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */; };
+		2ECAAAC214EF1A54002E7086 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAAAC114EF1A54002E7086 /* Photo.m */; };
+		2ECAAAC814EF1FBC002E7086 /* PhotoSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAAAC714EF1FBC002E7086 /* PhotoSet.m */; };
+		2ECAAACB14EF225E002E7086 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAAACA14EF225E002E7086 /* PhotoViewController.m */; };
 		2ED654EC14CF74560093E7D1 /* BonjourCulApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */; };
 		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
 		320A2827FEC940B25BC42C65 /* libThree20Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320A2827FEC940B25BC42C64 /* libThree20Core.a */; };
@@ -292,6 +295,12 @@
 		2ECA434214C8E05F00562E40 /* DailyDemoiseilleApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyDemoiseilleApi.m; sourceTree = "<group>"; };
 		2ECA434414C8E23A00562E40 /* OneDayOneBabeApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneDayOneBabeApi.h; sourceTree = "<group>"; };
 		2ECA434514C8E23A00562E40 /* OneDayOneBabeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneDayOneBabeApi.m; sourceTree = "<group>"; };
+		2ECAAAC014EF1A54002E7086 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		2ECAAAC114EF1A54002E7086 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		2ECAAAC614EF1FBC002E7086 /* PhotoSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSet.h; sourceTree = "<group>"; };
+		2ECAAAC714EF1FBC002E7086 /* PhotoSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSet.m; sourceTree = "<group>"; };
+		2ECAAAC914EF225E002E7086 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		2ECAAACA14EF225E002E7086 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		2ED654EA14CF74560093E7D1 /* BonjourCulApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourCulApi.h; sourceTree = "<group>"; };
 		2ED654EB14CF74560093E7D1 /* BonjourCulApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourCulApi.m; sourceTree = "<group>"; };
 		3201088596B4756681693700 /* Three20UICommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UICommon.xcodeproj; path = ../three20/src/Three20UICommon/Three20UICommon.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -333,16 +342,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E15A08914EF0B120024959C /* IndexingHeaders */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = IndexingHeaders;
-			sourceTree = "<group>";
-		};
 		2E33E52214C8A08C009C986D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2E3BF30114E830FA00C4DA26 /* EGOTableViewPullRefresh */,
+				2E7BE08114C626D20070586B /* XPath */,
 				2E3BF30014E830E300C4DA26 /* ControlVariables.h */,
 				2E33E51E14C8A072009C986D /* Constants.h */,
 				2E33E51F14C8A072009C986D /* Constants.m */,
@@ -357,10 +361,8 @@
 				2E8AAF3B14C0D2EA00891B40 /* HGFirstViewController.m */,
 				2E8AAF4114C0D2EA00891B40 /* HGSecondViewController.h */,
 				2E8AAF4214C0D2EA00891B40 /* HGSecondViewController.m */,
-				2E3BF2F814E8306C00C4DA26 /* HorizontalTableCell.h */,
-				2E3BF2F914E8306C00C4DA26 /* HorizontalTableCell.m */,
-				2E3BF2FA14E8306C00C4DA26 /* MadameCell.h */,
-				2E3BF2FB14E8306C00C4DA26 /* MadameCell.m */,
+				2ECAAAC314EF1BB7002E7086 /* Photo */,
+				2ECAAAC414EF1BC3002E7086 /* HorizontaleTable */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -408,9 +410,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2E4F658114C0E19A00A7E4E3 /* StockGirls */ = {
+		2E4F658114C0E19A00A7E4E3 /* StockImages */ = {
 			isa = PBXGroup;
 			children = (
+				2E07125814D75D3900F208F6 /* UIButtonBarRefresh.png */,
+				2E8AAF4414C0D2EA00891B40 /* second.png */,
+				2E8AAF4614C0D2EA00891B40 /* second@2x.png */,
 				2E5D726214CE0FF9009B867D /* blank.jpg */,
 				2E4F657014C0E18D00A7E4E3 /* ar.jpg */,
 				2E4F657114C0E18D00A7E4E3 /* asiat.jpg */,
@@ -421,7 +426,7 @@
 				2E4F657614C0E18D00A7E4E3 /* db.jpg */,
 				2E4F657714C0E18D00A7E4E3 /* dd.jpeg */,
 			);
-			name = StockGirls;
+			name = StockImages;
 			sourceTree = "<group>";
 		};
 		2E7BE08014C626C10070586B /* HelloApi */ = {
@@ -506,22 +511,16 @@
 		2E8AAF2814C0D2EA00891B40 /* HelloGirlz */ = {
 			isa = PBXGroup;
 			children = (
-				2E15A08914EF0B120024959C /* IndexingHeaders */,
-				2E3BF30114E830FA00C4DA26 /* EGOTableViewPullRefresh */,
 				2E8AAF3114C0D2EA00891B40 /* HGAppDelegate.h */,
 				2E8AAF3214C0D2EA00891B40 /* HGAppDelegate.m */,
 				2E8AAF3414C0D2EA00891B40 /* MainStoryboard_iPhone.storyboard */,
-				2E07125814D75D3900F208F6 /* UIButtonBarRefresh.png */,
 				2E8AAF3714C0D2EA00891B40 /* MainStoryboard_iPad.storyboard */,
 				2E3BF2FF14E8307800C4DA26 /* ViewControllers */,
 				2E8AAF3D14C0D2EA00891B40 /* first.png */,
 				2E8AAF3F14C0D2EA00891B40 /* first@2x.png */,
-				2E33E52214C8A08C009C986D /* Utils */,
-				2E7BE08114C626D20070586B /* XPath */,
 				2E7BE08014C626C10070586B /* HelloApi */,
-				2E4F658114C0E19A00A7E4E3 /* StockGirls */,
-				2E8AAF4414C0D2EA00891B40 /* second.png */,
-				2E8AAF4614C0D2EA00891B40 /* second@2x.png */,
+				2E33E52214C8A08C009C986D /* Utils */,
+				2E4F658114C0E19A00A7E4E3 /* StockImages */,
 				2E8AAF2914C0D2EA00891B40 /* Supporting Files */,
 			);
 			path = HelloGirlz;
@@ -536,6 +535,30 @@
 				2E8AAF3014C0D2EA00891B40 /* HelloGirlz-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2ECAAAC314EF1BB7002E7086 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				2ECAAAC614EF1FBC002E7086 /* PhotoSet.h */,
+				2ECAAAC714EF1FBC002E7086 /* PhotoSet.m */,
+				2ECAAAC914EF225E002E7086 /* PhotoViewController.h */,
+				2ECAAACA14EF225E002E7086 /* PhotoViewController.m */,
+				2ECAAAC014EF1A54002E7086 /* Photo.h */,
+				2ECAAAC114EF1A54002E7086 /* Photo.m */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
+		2ECAAAC414EF1BC3002E7086 /* HorizontaleTable */ = {
+			isa = PBXGroup;
+			children = (
+				2E3BF2F814E8306C00C4DA26 /* HorizontalTableCell.h */,
+				2E3BF2F914E8306C00C4DA26 /* HorizontalTableCell.m */,
+				2E3BF2FA14E8306C00C4DA26 /* MadameCell.h */,
+				2E3BF2FB14E8306C00C4DA26 /* MadameCell.m */,
+			);
+			name = HorizontaleTable;
 			sourceTree = "<group>";
 		};
 		3201088596B4756681693703 /* Products */ = {
@@ -848,6 +871,9 @@
 				2E3BF30F14E830FA00C4DA26 /* EGORefreshTableHeaderView.m in Sources */,
 				5C8AC56D14E9C94E00602D2B /* BonjourLatine.m in Sources */,
 				5C8AC57014E9CBA800602D2B /* BonjourDecollete.m in Sources */,
+				2ECAAAC214EF1A54002E7086 /* Photo.m in Sources */,
+				2ECAAAC814EF1FBC002E7086 /* PhotoSet.m in Sources */,
+				2ECAAACB14EF225E002E7086 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

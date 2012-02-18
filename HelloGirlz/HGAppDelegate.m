@@ -7,6 +7,8 @@
 //
 
 #import "HGAppDelegate.h"
+#import <Three20/Three20.h>
+#import "PhotoViewController.h"
 
 @implementation HGAppDelegate
 
@@ -14,7 +16,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[TTURLRequestQueue mainQueue] setMaxContentLength:0];
+    TTNavigator *navigator = [TTNavigator navigator];
+    navigator.persistenceMode = TTNavigatorPersistenceModeAll;
+    navigator.window = [[UIWindow alloc] initWithFrame:TTScreenBounds()];
+    
+    TTURLMap *map = navigator.URLMap;
+//    [map from:@"tt://appPhotos" toSharedViewController:[PhotoViewController class]];
+    
+    [map from:@"tt://appPhotos" toViewController:[PhotoViewController class]];
+    
     // Override point for customization after application launch.
+    return YES;
+}
+
+- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)URL {
+    [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:URL.absoluteString]];
     return YES;
 }
 							
