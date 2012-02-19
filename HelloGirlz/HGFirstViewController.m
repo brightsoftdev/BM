@@ -416,10 +416,10 @@
 - (void)receivedFullScreenNotification:(NSNotification *)notification 
 {
     NSLog(@"HGFirstViewController::receivedFullScreenNotification");
-    HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
+    //HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    if(_fullScreen == FALSE)
-    {
+    //if(_fullScreen == FALSE)
+    //{
 //        //Enter fullscreen
 //        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
 //        UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
@@ -454,20 +454,26 @@
 
         
         PhotoViewController* aPhotoViewController = [[PhotoViewController alloc] init];
-        aPhotoViewController.photoSource = aPhotoSet;
+        aPhotoViewController.photoSet =aPhotoSet;
+        //aPhotoViewController.aPhotoViewController = aPhotoSet;
 //        [appDelegate.window addSubview:aPhotoViewController.view];
+    
+        aPhotoViewController.centerPhoto = [aPhotoViewController.photoSet photoAtIndex:_pageControl.currentPage];
+    
+    
+    
 
         [[self navigationController] pushViewController:aPhotoViewController animated:YES];
 
-        _fullScreen = TRUE;
-    }
-    else
-    {
+        //_fullScreen = TRUE;
+    //}
+    //else
+    //{
         //Exit fullscreen
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-        [[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
-        _fullScreen = FALSE;
-    }
+        //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+        //[[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
+        //_fullScreen = FALSE;
+    //}
 }
 
 #pragma mark - Other methods
