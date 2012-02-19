@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1173"/>
@@ -51,16 +51,16 @@
                                 <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="320" sectionHeaderHeight="1" sectionFooterHeight="1" id="2ij-nV-tPB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="316" sectionHeaderHeight="1" sectionFooterHeight="1" id="2ij-nV-tPB">
                                 <rect key="frame" x="0.0" y="29" width="320" height="317"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MadameCell" id="IWE-6x-8lq">
-                                        <rect key="frame" x="0.0" y="1" width="320" height="320"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MadameCell" rowHeight="316" id="IWE-6x-8lq">
+                                        <rect key="frame" x="0.0" y="1" width="320" height="316"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="315"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -167,6 +167,26 @@
         <image name="first.png" width="30" height="30"/>
         <image name="second.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="HGFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HGFirstViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePage"/>
+                <relationship kind="action" name="refresh"/>
+                <relationship kind="outlet" name="_maView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="_navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="_pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="_refreshButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="_verticaltableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="HGSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HGSecondViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
