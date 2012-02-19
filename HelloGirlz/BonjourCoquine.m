@@ -15,7 +15,7 @@
     if (self) {
         // Custom initialization
         //        NSLog(@"Initialization of SeinDuJourApi");
-        _siteURL = [[NSString alloc] initWithString:@"http://bonjourcoquine.fr//"];
+        _siteURL = [[NSString alloc] initWithString:@"http://bonjourcoquine.fr/"];
         _siteName = [[NSString alloc] initWithString:@"Bonjour Coquine"];
         _xPathForPhotoURL = [[NSString alloc] initWithString:@"//div[@id='home']//img/@src"];
     }
