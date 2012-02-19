@@ -12,5 +12,16 @@
 //  appreciated but not required.
 //
 
+#import <libxml/tree.h>
+#import <libxml/parser.h>
+#import <libxml/HTMLparser.h>
+#import <libxml/xpath.h>
+#import <libxml/xpathInternals.h>
+
+
 NSArray *PerformHTMLXPathQuery(NSData *document, NSString *query);
 NSArray *PerformXMLXPathQuery(NSData *document, NSString *query);
+
+
+NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *parentResult);
+NSArray *PerformXPathQuery(xmlDocPtr doc, NSString *query);
