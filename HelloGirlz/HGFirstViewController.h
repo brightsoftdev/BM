@@ -32,9 +32,7 @@
 {
     
     IBOutlet UITableView*       _verticaltableView;
-    IBOutlet UIView*            _maView;
     IBOutlet UIPageControl*     _pageControl;
-    IBOutlet UINavigationBar*   _navBar;
     IBOutlet UIBarButtonItem*   _refreshButton;
     
     // EGO Pull down to refresh
@@ -60,14 +58,10 @@
     BonjourCulotte*         _bonjourCulotteApi;
     BonjourAmatrice*        _bonjourAmatriceApi;
     BonjourCoquine*         _bonjourCoquineApi;
-    
-    
-    
+
     NSInteger               _compteur;
-    BOOL                    _fullScreen;
 }
 
-@property(nonatomic, strong) UIView* _maView;
 @property(nonatomic, strong) UITableView* _verticaltableView;
 @property(nonatomic, strong) UIPageControl* _pageControl;
 

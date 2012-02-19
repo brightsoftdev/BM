@@ -19,7 +19,6 @@
 @implementation HGFirstViewController
 @synthesize _verticaltableView;
 @synthesize _pageControl;
-@synthesize _maView;
 
 
 - (void)didReceiveMemoryWarning
@@ -221,11 +220,10 @@
     
     // Set Page Title
 //    NSLog(@"Setting title for Page = %d",_pageControl.currentPage);
-    _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+    [self navigationItem].title = [self getKeyForPage:_pageControl.currentPage];
     
     
     _compteur = 0;
-    _fullScreen = FALSE;
 }
 
 - (void)viewDidUnload
@@ -368,7 +366,7 @@
             self._pageControl.currentPage = page;
         
         // Refresh page title
-        _navBar.topItem.title = [self getKeyForPage:_pageControl.currentPage];
+        [self navigationItem].title = [self getKeyForPage:_pageControl.currentPage];
     }
     
     // EGO Pull down to refresh
@@ -419,64 +417,29 @@
 - (void)receivedFullScreenNotification:(NSNotification *)notification 
 {
     NSLog(@"HGFirstViewController::receivedFullScreenNotification");
-    //HGAppDelegate *appDelegate = (HGAppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    //if(_fullScreen == FALSE)
-    //{
-//        //Enter fullscreen
-//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
-//        UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
-//        UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
-//        aFreshImageView.tag = kTagForFullScreenView;
-//        aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
-//        aFreshImageView.contentMode = UIViewContentModeScaleAspectFit;
-//        aFreshImageView.backgroundColor = [UIColor blackColor];
-//        
-//        [appDelegate.window addSubview:aFreshImageView];
         
-        NSMutableArray* aPhotosArr = [[NSMutableArray alloc] init];
+    NSMutableArray* aPhotosArr = [[NSMutableArray alloc] init];
         
-        for(NSString* key in _urlDic)
+    for(NSString* key in _urlDic)
+    {
+        // create the array of Photo objects (needs photo URLs)
+        NSString* aURL = [_urlDic objectForKey:key];
+        if(aURL)   
         {
-            // TODO create the array of Photo objects (needs photo URLs)
-            NSString* aURL = [_urlDic objectForKey:key];
-            if(aURL)   
-            {
-                NSLog(@"HGFirstViewController::receivedFullScreenNotification - adding URL %@ to the Photo array",aURL);
-                Photo* aPhoto = [[Photo alloc] initWithCaption:key urlLarge:aURL urlSmall:aURL urlThumb:aURL size:CGSizeMake(320, 320)];
-                [aPhotosArr addObject:aPhoto];
-            }
+            NSLog(@"HGFirstViewController::receivedFullScreenNotification - adding URL %@ to the Photo array",aURL);
+            Photo* aPhoto = [[Photo alloc] initWithCaption:key urlLarge:aURL urlSmall:aURL urlThumb:aURL size:CGSizeMake(320, 320)];
+            [aPhotosArr addObject:aPhoto];
         }
+    }
         
-        PhotoSet* aPhotoSet = [[PhotoSet alloc] initWithTitle:@"toto" photos:aPhotosArr];
-//        TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://appPhotos"] applyQuery:[NSDictionary dictionaryWithObject:aPhotoSet forKey:@"kPhotoSet"]] applyAnimated:YES];
-//        NSLog(@"debug 3");
-//        
-//        [[TTNavigator navigator] openURLAction:action];
+    PhotoSet* aPhotoSet = [[PhotoSet alloc] initWithTitle:@"toto" photos:aPhotosArr];
         
+    PhotoViewController* aPhotoViewController = [[PhotoViewController alloc] init];
+    aPhotoViewController.photoSet =aPhotoSet;
 
-        
-        PhotoViewController* aPhotoViewController = [[PhotoViewController alloc] init];
-        aPhotoViewController.photoSet =aPhotoSet;
-        //aPhotoViewController.aPhotoViewController = aPhotoSet;
-//        [appDelegate.window addSubview:aPhotoViewController.view];
     
-        aPhotoViewController.centerPhoto = [aPhotoViewController.photoSet photoAtIndex:_pageControl.currentPage];
-    
-    
-    
-
-        [[self navigationController] pushViewController:aPhotoViewController animated:YES];
-
-        //_fullScreen = TRUE;
-    //}
-    //else
-    //{
-        //Exit fullscreen
-        //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-        //[[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
-        //_fullScreen = FALSE;
-    //}
+    aPhotoViewController.centerPhoto = [aPhotoViewController.photoSet photoAtIndex:_pageControl.currentPage];
+    [[self navigationController] pushViewController:aPhotoViewController animated:YES];
 }
 
 #pragma mark - Other methods

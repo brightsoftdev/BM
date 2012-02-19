@@ -75,10 +75,9 @@
                         <color key="backgroundColor" red="0.38039216399999998" green="0.38039216399999998" blue="0.38039216399999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="first.png" id="7"/>
-                    <navigationItem key="navigationItem" title="Today" id="2jg-6Y-Jvj"/>
+                    <navigationItem key="navigationItem" id="2jg-6Y-Jvj"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="_maView" destination="16" id="yJD-Ye-rlu"/>
                         <outlet property="_pageControl" destination="V6d-Ko-KJ7" id="iEB-br-UJG"/>
                         <outlet property="_verticaltableView" destination="2ij-nV-tPB" id="zYf-7W-UfT"/>
                     </connections>
@@ -173,8 +172,6 @@
             <relationships>
                 <relationship kind="action" name="changePage"/>
                 <relationship kind="action" name="refresh"/>
-                <relationship kind="outlet" name="_maView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="_navBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="_pageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="_refreshButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="_verticaltableView" candidateClass="UITableView"/>
