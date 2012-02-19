@@ -242,6 +242,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    // Needed because TTPhotoViewController doesn't revert to default the UINavigationController style when poping the view
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     [super viewDidAppear:animated];
 }
 
