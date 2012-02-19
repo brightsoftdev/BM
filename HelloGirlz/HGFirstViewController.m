@@ -219,7 +219,7 @@
     
     // Set Up for NavBar
     [self navigationItem].title = [self getKeyForPage:_pageControl.currentPage];
-    [self navigationController].navigationBar.tintColor = [UIColor colorWithRed:0.10 green:0.74 blue:0.87 alpha:1.0];
+    [self navigationController].navigationBar.tintColor = kNavigationBarBackgroundColor;
     
     // Register as a UINavigationController delegate
     [self navigationController].delegate = self;
@@ -239,6 +239,7 @@
 {
     // Needed because TTPhotoViewController doesn't revert to default the UINavigationController style when poping the view
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBar.tintColor = kNavigationBarBackgroundColor;
 
     [super viewWillAppear:animated];
 }
