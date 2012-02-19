@@ -8,23 +8,45 @@
 
 #import "HGAppDelegate.h"
 #import <Three20/Three20.h>
-#import "PhotoViewController.h"
 
 @implementation HGAppDelegate
 
-@synthesize window = _window;
+//@synthesize photoViewController;
+//@synthesize firstViewController;
+//@synthesize secondViewController;
+//@synthesize tabBarController;
+@synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[TTURLRequestQueue mainQueue] setMaxContentLength:0];
-    TTNavigator *navigator = [TTNavigator navigator];
-    navigator.persistenceMode = TTNavigatorPersistenceModeAll;
-    navigator.window = [[UIWindow alloc] initWithFrame:TTScreenBounds()];
+    //THREE20 SHITTY STUFFS
+//    [[TTURLRequestQueue mainQueue] setMaxContentLength:0];
+//    TTNavigator *navigator = [TTNavigator navigator];
+//    navigator.persistenceMode = TTNavigatorPersistenceModeAll;
+//    navigator.window = [[UIWindow alloc] initWithFrame:TTScreenBounds()];
+//    
+//    TTURLMap *map = navigator.URLMap;
+////    [map from:@"tt://appPhotos" toSharedViewController:[PhotoViewController class]];
+//    
+//    [map from:@"tt://appPhotos" toViewController:[PhotoViewController class]];
     
-    TTURLMap *map = navigator.URLMap;
-//    [map from:@"tt://appPhotos" toSharedViewController:[PhotoViewController class]];
-    
-    [map from:@"tt://appPhotos" toViewController:[PhotoViewController class]];
+    // set up tab bar controller manually
+//    tabBarController = [[UITabBarController alloc] init];        
+//    firstViewController = [[HGFirstViewController alloc] init];  
+//    secondViewController = [[HGSecondViewController alloc] init];  
+//    photoViewController = [[PhotoViewController alloc] init];  
+//    
+//    /* This is the essential part of the solution. You have to add the albumController to a 
+//     new  navigation controller and init it as RootViewController*/
+//    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:photoViewController];
+//    
+//    // now add all controllers to the tabBarController
+//    tabBarController.viewControllers = [NSArray arrayWithObjects:firstViewController, secondViewController, navController, nil];   
+//    
+//
+//    
+//    [window addSubview:tabBarController.view];                                             
+    [window makeKeyAndVisible];  
     
     // Override point for customization after application launch.
     return YES;

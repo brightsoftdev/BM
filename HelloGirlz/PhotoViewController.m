@@ -17,6 +17,7 @@
     return self;
 }
 
+
 - (void) viewDidLoad 
 {
     NSLog(@"PhotoViewController::viewDidLoad");
