@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Three20/Three20.h"
 #import "EGORefreshTableHeaderView.h"
+#import "PhotoViewController.h"
+
+// APIs
 #import "HelloApi.h"
 #import "HGAppDelegate.h"
 #import "BonjourMadameApi.h"
@@ -28,12 +31,14 @@
 #import "BonjourCoquine.h"
 
 
-@interface HGFirstViewController : UIViewController<HelloApiDelegate, EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface HGFirstViewController : UIViewController<HelloApiDelegate, EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource,UINavigationControllerDelegate>
 {
     
     IBOutlet UITableView*       _verticaltableView;
     IBOutlet UIPageControl*     _pageControl;
     IBOutlet UIBarButtonItem*   _refreshButton;
+    
+    PhotoViewController*        _photoViewController;
     
     // EGO Pull down to refresh
     EGORefreshTableHeaderView*  _refreshHeaderView;
@@ -65,13 +70,15 @@
 @property(nonatomic, strong) UITableView* _verticaltableView;
 @property(nonatomic, strong) UIPageControl* _pageControl;
 
--(IBAction)changePage;
+-(IBAction)pageControlChangePageCallback;
 -(IBAction)refresh;
 -(void)loadImages;
 -(void)updateImageFromUrl:(NSString*)iURL For:(NSString*) iKey;
 -(void)queryAPIs;
 -(NSString*)getKeyForPage:(NSInteger)iPage;
-- (void)loadImageInBackGround:  (NSArray*) params;
+-(void)loadImageInBackGround:  (NSArray*) params;
+-(void)scrollToPhotoAtIndex:(NSInteger)index;
+
 
 // EGO PULL DOWN TO REFRESH
 - (void)reloadTableViewDataSource;

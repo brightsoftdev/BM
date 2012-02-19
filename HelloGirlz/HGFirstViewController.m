@@ -10,7 +10,6 @@
 #import "Constants.h"
 #import "HorizontalTableCell.h"
 #import "ControlVariables.h"
-#import "PhotoViewController.h"
 #import "PhotoSet.h"
 #import "Photo.h"
 
@@ -218,9 +217,12 @@
     
     [self queryAPIs];
     
-    // Set Page Title
-//    NSLog(@"Setting title for Page = %d",_pageControl.currentPage);
+    // Set Up for NavBar
     [self navigationItem].title = [self getKeyForPage:_pageControl.currentPage];
+    [self navigationController].navigationBar.tintColor = [UIColor colorWithRed:0.10 green:0.74 blue:0.87 alpha:1.0];
+    
+    // Register as a UINavigationController delegate
+    [self navigationController].delegate = self;
     
     
     _compteur = 0;
@@ -349,6 +351,16 @@
 	return [NSDate date]; // should return date data source was last changed
 }
 
+#pragma mark - UINavigationViewController delegate
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if(viewController != _photoViewController)
+    {
+        NSLog(@"Back from Fullscreen, scrolling to photo at index %d", _photoViewController.centerPhotoIndex);
+        [self scrollToPhotoAtIndex:_photoViewController.centerPhotoIndex];
+    }
+}
 
 
 #pragma mark - UIScrollView delegate
@@ -388,20 +400,12 @@
 
 }
 
-
 #pragma mark - IBAction responder methods
 
 // Methode appelée lorsqu'on clic sur le pageControl
--(IBAction)changePage
+-(IBAction)pageControlChangePageCallback
 {
-    // Deduct the frame to scroll to based on the horizontal table cell width + UIPageControl.currentPage
-    CGRect frame;
-    frame.origin.x = 0;
-    frame.origin.y = kCellWidth * self._pageControl.currentPage;
-    frame.size = _horizontalTableView.frame.size;
-    
-    // Scroll to the frame
-    [_horizontalTableView scrollRectToVisible:frame animated:YES];
+    [self scrollToPhotoAtIndex:self._pageControl.currentPage];
     _pageControlBeingUsed = YES;
 }
 
@@ -418,11 +422,10 @@
 {
     NSLog(@"HGFirstViewController::receivedFullScreenNotification");
         
-    NSMutableArray* aPhotosArr = [[NSMutableArray alloc] init];
-        
+    // Create an array of Photo objects (needs photo URLs)
+    NSMutableArray* aPhotosArr = [[NSMutableArray alloc] initWithCapacity:[_urlDic count]];
     for(NSString* key in _urlDic)
     {
-        // create the array of Photo objects (needs photo URLs)
         NSString* aURL = [_urlDic objectForKey:key];
         if(aURL)   
         {
@@ -431,18 +434,37 @@
             [aPhotosArr addObject:aPhoto];
         }
     }
-        
-    PhotoSet* aPhotoSet = [[PhotoSet alloc] initWithTitle:@"toto" photos:aPhotosArr];
-        
-    PhotoViewController* aPhotoViewController = [[PhotoViewController alloc] init];
-    aPhotoViewController.photoSet =aPhotoSet;
-
     
-    aPhotoViewController.centerPhoto = [aPhotoViewController.photoSet photoAtIndex:_pageControl.currentPage];
-    [[self navigationController] pushViewController:aPhotoViewController animated:YES];
+    // Create the PhotoSet from the array of Photos 
+    PhotoSet* aPhotoSet = [[PhotoSet alloc] initWithTitle:@"toto" photos:aPhotosArr];
+    
+    // Create the PhotoViewController and push it onto the nav stack
+    if(_photoViewController == nil)
+    {
+        _photoViewController = [[PhotoViewController alloc] init];
+    }
+        
+    _photoViewController.photoSet = aPhotoSet;
+    _photoViewController.centerPhoto = [_photoViewController.photoSet photoAtIndex:_pageControl.currentPage];
+    
+    [[self navigationController] pushViewController:_photoViewController animated:YES];
 }
 
-#pragma mark - Other methods
+#pragma mark - HGFirstViewController own methods
+
+
+-(void)scrollToPhotoAtIndex:(NSInteger)index
+{
+    // Deduct the frame to scroll to based on the horizontal table cell width + index
+    CGRect frame;
+    frame.origin.x = 0;
+    frame.origin.y = kCellWidth * index;
+    frame.size = _horizontalTableView.frame.size;
+    
+    // Scroll to the frame
+    [_horizontalTableView scrollRectToVisible:frame animated:YES];
+}
+
 
 -(void)queryAPIs
 {
