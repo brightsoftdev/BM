@@ -77,7 +77,7 @@
 -(void)queryAPIs;
 -(NSString*)getKeyForPage:(NSInteger)iPage;
 -(void)loadImageInBackGround:  (NSArray*) params;
--(void)scrollToPhotoAtIndex:(NSInteger)index;
+-(void)scrollToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated;
 
 
 // EGO PULL DOWN TO REFRESH

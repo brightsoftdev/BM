@@ -358,7 +358,7 @@
     if(viewController != _photoViewController)
     {
         NSLog(@"Back from Fullscreen, scrolling to photo at index %d", _photoViewController.centerPhotoIndex);
-        [self scrollToPhotoAtIndex:_photoViewController.centerPhotoIndex];
+        [self scrollToPhotoAtIndex:_photoViewController.centerPhotoIndex animated:NO];
     }
 }
 
@@ -405,7 +405,7 @@
 // Methode appelée lorsqu'on clic sur le pageControl
 -(IBAction)pageControlChangePageCallback
 {
-    [self scrollToPhotoAtIndex:self._pageControl.currentPage];
+    [self scrollToPhotoAtIndex:self._pageControl.currentPage animated:YES];
     _pageControlBeingUsed = YES;
 }
 
@@ -453,7 +453,7 @@
 #pragma mark - HGFirstViewController own methods
 
 
--(void)scrollToPhotoAtIndex:(NSInteger)index
+-(void)scrollToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated
 {
     // Deduct the frame to scroll to based on the horizontal table cell width + index
     CGRect frame;
@@ -462,7 +462,7 @@
     frame.size = _horizontalTableView.frame.size;
     
     // Scroll to the frame
-    [_horizontalTableView scrollRectToVisible:frame animated:YES];
+    [_horizontalTableView scrollRectToVisible:frame animated:animated];
 }
 
 
