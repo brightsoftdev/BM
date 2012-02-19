@@ -421,43 +421,43 @@
     if(_fullScreen == FALSE)
     {
         //Enter fullscreen
-//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
-//        UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
-//        UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
-//        aFreshImageView.tag = kTagForFullScreenView;
-//        aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
-//        aFreshImageView.contentMode = UIViewContentModeScaleAspectFit;
-//        aFreshImageView.backgroundColor = [UIColor blackColor];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+        UIImageView* imgViewFromCell = [[notification userInfo] valueForKey:@"imgview"];
+        UIImageView* aFreshImageView = [[UIImageView alloc] initWithImage:imgViewFromCell.image];
+        aFreshImageView.tag = kTagForFullScreenView;
+        aFreshImageView.frame =[[UIScreen mainScreen] applicationFrame];
+        aFreshImageView.contentMode = UIViewContentModeScaleAspectFit;
+        aFreshImageView.backgroundColor = [UIColor blackColor];
+        
+        [appDelegate.window addSubview:aFreshImageView];
+        
+//        NSMutableArray* aPhotosArr = [[NSMutableArray alloc] init];
 //        
-//        [appDelegate.window addSubview:aFreshImageView];
-        
-        NSMutableArray* aPhotosArr = [[NSMutableArray alloc] init];
-        
-        for(NSString* key in _urlDic)
-        {
-            // TODO create the array of Photo objects (needs photo URLs)
-            NSString* aURL = [_urlDic objectForKey:key];
-            if(aURL)   
-            {
-                NSLog(@"HGFirstViewController::receivedFullScreenNotification - adding URL %@ to the Photo array",aURL);
-                Photo* aPhoto = [[Photo alloc] initWithCaption:key urlLarge:aURL urlSmall:aURL urlThumb:aURL size:CGSizeMake(320, 320)];
-                [aPhotosArr addObject:aPhoto];
-            }
-        }
-        
-        PhotoSet* aPhotoSet = [[PhotoSet alloc] initWithTitle:@"toto" photos:aPhotosArr];
-        TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://appPhotos"] applyQuery:[NSDictionary dictionaryWithObject:aPhotoSet forKey:@"kPhotoSet"]] applyAnimated:YES];
-        NSLog(@"debug 3");
-        
-        [[TTNavigator navigator] openURLAction:action];
+//        for(NSString* key in _urlDic)
+//        {
+//            // TODO create the array of Photo objects (needs photo URLs)
+//            NSString* aURL = [_urlDic objectForKey:key];
+//            if(aURL)   
+//            {
+//                NSLog(@"HGFirstViewController::receivedFullScreenNotification - adding URL %@ to the Photo array",aURL);
+//                Photo* aPhoto = [[Photo alloc] initWithCaption:key urlLarge:aURL urlSmall:aURL urlThumb:aURL size:CGSizeMake(320, 320)];
+//                [aPhotosArr addObject:aPhoto];
+//            }
+//        }
+//        
+//        PhotoSet* aPhotoSet = [[PhotoSet alloc] initWithTitle:@"toto" photos:aPhotosArr];
+//        TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://appPhotos"] applyQuery:[NSDictionary dictionaryWithObject:aPhotoSet forKey:@"kPhotoSet"]] applyAnimated:YES];
+//        NSLog(@"debug 3");
+//        
+//        [[TTNavigator navigator] openURLAction:action];
 
         _fullScreen = TRUE;
     }
     else
     {
         //Exit fullscreen
-//        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-//        [[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+        [[appDelegate.window viewWithTag:kTagForFullScreenView] removeFromSuperview];
         _fullScreen = FALSE;
     }
 }
